@@ -1,0 +1,47 @@
+.app {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px;
+}
+
+.app__searchForm {
+  margin-top: 18px;
+}
+
+.app__input {
+  padding: 6px 16px;
+  min-width: 200px;
+  max-width: 100vw;
+  font-size: 15px;
+}
+
+.app__submit {
+  padding: 6px 16px;
+  font-size: 15px;
+  margin-left: 6px;
+  background-color: #02aff0;
+  border: 2px solid #02aff0;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.app__submit:hover {
+  padding: 6px 16px;
+  font-size: 15px;
+  margin-left: 6px;
+  background-color: white;
+  border: 2px solid #02aff0;
+  border-radius: 4px;
+  color: #02aff0;
+  cursor: pointer;
+}
+
+.app__recipes {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 220px 220px;
+  align-items: baseline;
+}
