@@ -1,4 +1,35 @@
-# Getting Started with Create React App
+# Let's Build a Food Recipe App
+React API Project Tutorial Using Hooks, Axios and Firebase
+
+![recipe app reactjs api project sanskar tiwari](https://user-images.githubusercontent.com/55942632/109449230-e829a780-7a6d-11eb-9934-a9c82cce1e12.jpg)
+
+### Created & Maintained By
+
+[Sanskar Tiwari](https://github.com/theindianappguy) ([@theindianappguy](https://twitter.com/indianappguy)) ([YouTube](https://www.youtube.com/SanskarTiwari))
+
+> If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
+>
+> - [buymeacoffee](https://www.buymeacoffee.com/sanskartiwari)
+
+> You can also nominate me for Github Star developer program
+> https://stars.github.com/nominate
+
+### License
+
+    Copyright 2020 Sanskar Tiwari
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
