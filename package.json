@@ -7,9 +7,13 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "bootstrap": "^5.2.3",
     "react": "^17.0.1",
+    "react-bootstrap": "^2.6.0",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^7.39.5",
     "react-scripts": "4.0.2",
+    "sass": "^1.56.1",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
