@@ -1,6 +1,6 @@
 .register{
     background: rgb(230, 240, 245);
-    min-height: 100vh;
+    min-height: 80vh;
     min-width: 100vw;
     display: flex;
     align-items: center;
@@ -17,6 +17,7 @@
         }
     }
     &-wrapper{
+        text-align: left;
         min-width: 350px;
         margin-left: -25%;
         background-color: aliceblue;

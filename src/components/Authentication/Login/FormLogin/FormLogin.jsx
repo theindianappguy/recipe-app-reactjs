@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useForm} from 'react-hook-form'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import ErrMessageAuthBackend from '../../ErrorMessage/ErrMessageAuthBackend'
 import ErrorMessageAuth from '../../ErrorMessage/ErrorMessageAuth'
+import { loginUser } from './../../../Api/auth.api';
 export default function FormLogin() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {currentUserError} = useSelector(state=>state.auth.login)
   const {register,handleSubmit,formState:{errors}} = useForm()
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
-
-
+  const [errorMessage,setErrorMessage]= useState('')
+  useEffect(()=>{
+    setErrorMessage(currentUserError)
+  },[currentUserError,setErrorMessage])
   const handleClass = (name,baseClass = "form-control")=>`${baseClass} ${errors[name]?'is-invalid':''}`
   const onSubmit = (data)=>{
-    console.log(data);
+    loginUser(data,dispatch,navigate)
   }
   return (
     <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
@@ -47,9 +56,7 @@ export default function FormLogin() {
           />
           <ErrorMessageAuth name="password" errors={errors}/>
         </div>
-
-          
-
+        {errorMessage && <div className='text-danger'>{errorMessage}</div> }
         <div className="d-grid">
           <button type="submit" className="btn btn-primary" style={{backgroundColor:'#007074',}}>
             Login
