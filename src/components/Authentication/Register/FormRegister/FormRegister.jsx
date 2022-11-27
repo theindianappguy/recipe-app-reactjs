@@ -2,25 +2,33 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import ErrorMessageAuth from '../../ErrorMessage/ErrorMessageAuth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../../Api/auth.api';
 
 export default function FormRegister() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const {registerMessageError} = useSelector(state=>state.auth.register)
   const {register,handleSubmit,formState:{errors}} = useForm()
-  const [name,setName] = useState('')
+  const [username,setUsername] = useState('')
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
+  const [errorMessage,setErrorMessage] = useState(registerMessageError)
   const handleClass = (name,baseClass = "form-control")=>`${baseClass} ${errors[name]?'is-invalid':''}`
   const onSubmit = (data)=>{
-    console.log(data);
+    registerUser(data,dispatch,navigate)
+    // console.log(data);
   }
   return (
     <form className='form' onSubmit={handleSubmit(onSubmit)}>
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label>User Name</label>
-          <input name='name' {...register("name",{required:{value:true,message:'You must enter your username'},maxLength:{value:20,message:'Username must be less than 20 characters'},minLength:{value:4,message:"Username must be longer than 4 characters"}})} 
+          <input name='username' {...register("username",{required:{value:true,message:'You must enter your username'},maxLength:{value:20,message:'Username must be less than 20 characters'},minLength:{value:4,message:"Username must be longer than 4 characters"}})} 
           type="text"
-          value={name}
-          onChange={(e)=>{setName(e.target.value)}}
+          value={username}
+          onChange={(e)=>{setUsername(e.target.value)}}
           className={handleClass('name')}
           placeholder="User Name" />
           <ErrorMessageAuth name='name' errors={errors}/>
@@ -53,14 +61,14 @@ export default function FormRegister() {
           />
           <ErrorMessageAuth name="password" errors={errors}/>
         </div>
-
+        {errorMessage&& <div className='text-danger'>{errorMessage}</div>}
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
             Sign Up
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <Link to="/login">sign in?</Link>
         </p>
       </form>
   )

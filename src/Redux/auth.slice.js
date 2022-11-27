@@ -11,7 +11,8 @@ const authSlice = createSlice({
         register:{
             isFetching:false,
             isError:false,
-            isSuccess:false
+            isSuccess:false,
+            registerMessageError:null
         }
     },
     reducers:{
@@ -36,11 +37,13 @@ const authSlice = createSlice({
             state.register.isFetching=false
             state.register.isError=false
             state.register.isSuccess=true
+            state.register.registerMessageError=null
         },
-        registerError:(state)=>{
+        registerError:(state,action)=>{
             state.register.isFetching=false
             state.register.isError=true
             state.register.isSuccess=false
+            state.register.registerMessageError=action.payload
         }
 
     }
