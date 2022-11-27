@@ -6,13 +6,13 @@ import { loginError, loginStart, loginSuccess } from "../../Redux/auth.slice";
 export const loginUser = async (user,dispatch,navigate)=>{
     dispatch(loginStart())
     try{
-        const res = await axios.post("http://localhost:8000/auth/login",user);
+        const res = await axios.post("http://localhost:3000/login",user);
         dispatch(loginSuccess(res.data))
         navigate("/")
     }
     catch(err){
         if(err.response){
-            dispatch(loginError(err.response.data))
+            dispatch(loginError("Tai khoan hoac mat khau khong dung"))
         }
         
     }
@@ -20,14 +20,13 @@ export const loginUser = async (user,dispatch,navigate)=>{
 export const registerUser = async (user,dispatch,navigate)=>{
     dispatch(registerStart())
     try{
-        const res = await axios.post("http://localhost:8000/auth/register",user);
+        const res = await axios.post("http://localhost:3000/user",user);
         console.log(res);
         dispatch(registerSuccess())
         navigate("/login")
     }catch(err){
         if(err.response){
-            dispatch(registerError(err.response.data))
-            console.log(err);
+            dispatch(registerError("Tai khoan khong hop le"))
         }
     }
 }
