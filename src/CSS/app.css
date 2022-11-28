@@ -98,12 +98,12 @@ body{
     transition: all .50s ease;
 }
 
-.user{
+.user-login-link{
     display: flex;
     align-items: center;
 }
 
-.user i{
+.user-login-link i{
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;
@@ -119,8 +119,31 @@ body{
     z-index: 10001;
     display: none;
 }
-
-
+.navbar-dropdown:focus{
+    box-shadow: none;
+}
+.navbar-dropdown-toggle{
+    width: 250px;
+    border: none;
+    color: #333;
+    transition-duration: 0.4s;
+    font-size: medium;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    
+}
+.navbar-dropdown-toggle:hover{
+    background-color: #ddd;
+    box-shadow: none;
+}
+.navbar-dropdown-toggle-avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
 @media (max-width: 1280px){
     header{
         padding: 14px 2%;
