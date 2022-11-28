@@ -22,9 +22,7 @@ export default function FormRegister() {
     `${baseClass} ${errors[name] ? "is-invalid" : ""}`;
   const onSubmit = (data) => {
     registerUser(data, dispatch, navigate);
-    // console.log(data);
   };
-  console.log(registerMessageError);
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Sign Up</h3>

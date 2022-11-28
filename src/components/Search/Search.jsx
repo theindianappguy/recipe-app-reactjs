@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import RecipeTile from '../recipe-tile';
-import "./search.css"
+import axios from "axios";
+import React, { useState } from "react";
+import RecipeTile from "../recipe-tile";
+import "./search.css";
 export default function Search() {
-    const [query, setquery] = useState("");
+  const [query, setquery] = useState("");
   const [recipes, setrecipes] = useState([]);
 
   const YOUR_APP_ID = `82e453da`;
@@ -14,7 +14,6 @@ export default function Search() {
   const getRecipeInfo = async () => {
     var result = await axios.get(url);
     setrecipes(result.data.hits);
-    console.log(result.data.hits);
   };
 
   const onSubmit = (e) => {
@@ -23,7 +22,7 @@ export default function Search() {
   };
   return (
     <div>
-    <h1 onClick={getRecipeInfo}>Food Recipe Plaza 🍔</h1>
+      <h1 onClick={getRecipeInfo}>Food Recipe Plaza 🍔</h1>
       <form className="app__searchForm" onSubmit={onSubmit}>
         <input
           className="app__input"
@@ -43,5 +42,5 @@ export default function Search() {
           })}
       </div>
     </div>
-  )
+  );
 }

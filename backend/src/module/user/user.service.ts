@@ -41,7 +41,6 @@ export class UserService {
   update(id: number, updateUserDto: UpdateUserDto) {
     if (this.userRepo.findOne({ where: { id: id } })) {
       updateUserDto.id = id;
-      console.log(updateUserDto);
       return this.userRepo.save(updateUserDto);
     }
     return `Accout khong ton tai`;
