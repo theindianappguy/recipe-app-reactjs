@@ -15,7 +15,6 @@ export class RecipeService {
     return this.recipeRepo.save(createRecipeDto);
   }
   search(name: string){
-    console.log(name)
     return this.recipeRepo.find({where:{ name: name }});
   }
   findAll() {

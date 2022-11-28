@@ -51,6 +51,10 @@ const authSlice = createSlice({
       state.login.isError = false;
       state.login.currentUserError = null;
     },
+    clearRedux: (state) => {
+      state.register.registerMessageError = null;
+      state.login.currentUserError = null;
+    },
   },
 });
 export const {
@@ -61,5 +65,6 @@ export const {
   registerSuccess,
   registerError,
   logoutSuccess,
+  clearRedux,
 } = authSlice.actions;
 export default authSlice.reducer;

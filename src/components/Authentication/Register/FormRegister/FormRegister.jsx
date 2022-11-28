@@ -5,6 +5,7 @@ import ErrorMessageAuth from "../../ErrorMessage/ErrorMessageAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../../Api/auth.api";
+import { clearRedux } from "../../../../Redux/auth.slice";
 
 export default function FormRegister() {
   const dispatch = useDispatch();
@@ -22,9 +23,7 @@ export default function FormRegister() {
     `${baseClass} ${errors[name] ? "is-invalid" : ""}`;
   const onSubmit = (data) => {
     registerUser(data, dispatch, navigate);
-    // console.log(data);
   };
-  console.log(registerMessageError);
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <h3>Sign Up</h3>
@@ -111,7 +110,10 @@ export default function FormRegister() {
         </button>
       </div>
       <p className="forgot-password text-right">
-        Already registered <Link to="/login">sign in?</Link>
+        Already registered{" "}
+        <Link onClick={() => dispatch(clearRedux())} to="/login">
+          sign in?
+        </Link>
       </p>
     </form>
   );
