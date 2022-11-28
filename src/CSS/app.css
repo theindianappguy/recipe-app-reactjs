@@ -98,12 +98,12 @@ body{
     transition: all .50s ease;
 }
 
-.user{
+.user-login-link{
     display: flex;
     align-items: center;
 }
 
-.user i{
+.user-login-link i{
     color: var(--main-color);
     font-size: 28px;
     margin-right: 7px;

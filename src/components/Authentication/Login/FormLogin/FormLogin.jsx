@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useForm} from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import ErrMessageAuthBackend from '../../ErrorMessage/ErrMessageAuthBackend'
+import { Link, useNavigate } from 'react-router-dom'
 import ErrorMessageAuth from '../../ErrorMessage/ErrorMessageAuth'
 import { loginUser } from './../../../Api/auth.api';
 export default function FormLogin() {
@@ -63,7 +62,7 @@ export default function FormLogin() {
           </button>
         </div>
         <p className="form-login-signup text-right">
-          Don't have account <a href="#">Sign up?</a>
+          Don't have account <Link to="/register">Sign up?</Link>
         </p>
       </form>
   )

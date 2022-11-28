@@ -1,4 +1,5 @@
 const LocalStorage = {
-    accessToken :''
+    accessToken :'',
+    username:''
 }
 export default LocalStorage
