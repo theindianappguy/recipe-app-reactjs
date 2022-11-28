@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { clearRedux } from "../../../../Redux/auth.slice";
 import ErrorMessageAuth from "../../ErrorMessage/ErrorMessageAuth";
 import { loginUser } from "./../../../Api/auth.api";
 export default function FormLogin() {
@@ -92,7 +93,10 @@ export default function FormLogin() {
         </button>
       </div>
       <p className="form-login-signup text-right">
-        Don't have account <Link to="/register">Sign up?</Link>
+        Don't have account{" "}
+        <Link to="/register" onClick={() => dispatch(clearRedux())}>
+          Sign up?
+        </Link>
       </p>
     </form>
   );

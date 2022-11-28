@@ -1,10 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { clearRedux } from "../../Redux/auth.slice";
 import DropDownNavbar from "../OtherComponents/IsLogined/DropDownNavbar";
 // import IsLogined from "../OtherComponents/IsLogined/IsLogined";
 
 function Navbar(props) {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.login.currentUser);
   return (
     <>
@@ -34,10 +36,16 @@ function Navbar(props) {
           </div>
         ) : (
           <div className="main">
-            <Link to="login" className="user-login-link">
+            <Link
+              onClick={() => dispatch(clearRedux())}
+              to="login"
+              className="user-login-link"
+            >
               <i className="ri-user-fill"></i>Sign In
             </Link>
-            <Link to="register">Register</Link>
+            <Link onClick={() => dispatch(clearRedux())} to="register">
+              Register
+            </Link>
             <div className="bx bx-menu" id="menu-icon"></div>
           </div>
         )}

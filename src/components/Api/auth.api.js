@@ -1,5 +1,5 @@
 import axios from "axios";
-import { registerError } from "../../Redux/auth.slice";
+import { clearRedux, registerError } from "../../Redux/auth.slice";
 import { registerSuccess } from "../../Redux/auth.slice";
 import { registerStart } from "../../Redux/auth.slice";
 import {
@@ -7,6 +7,7 @@ import {
   loginStart,
   loginSuccess,
   logoutSuccess,
+  deleteErrorLogin,
 } from "../../Redux/auth.slice";
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
@@ -33,5 +34,9 @@ export const registerUser = async (user, dispatch, navigate) => {
 };
 export const logoutUser = (dispatch, navigate) => {
   dispatch(logoutSuccess());
+  navigate("/login");
+};
+export const deleteError = (dispatch, navigate) => {
+  dispatch(clearRedux());
   navigate("/login");
 };
