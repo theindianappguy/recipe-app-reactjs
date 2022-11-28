@@ -2,7 +2,12 @@ import axios from "axios";
 import { registerError } from "../../Redux/auth.slice";
 import { registerSuccess } from "../../Redux/auth.slice";
 import { registerStart } from "../../Redux/auth.slice";
-import { loginError, loginStart, loginSuccess } from "../../Redux/auth.slice";
+import {
+  loginError,
+  loginStart,
+  loginSuccess,
+  logoutSuccess,
+} from "../../Redux/auth.slice";
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
@@ -13,7 +18,7 @@ export const loginUser = async (user, dispatch, navigate) => {
     navigate("/");
   } catch (err) {
     if (err.response) {
-      dispatch(loginError("Tai khoan hoac mat khau khong dung"));
+      dispatch(loginError("* Email or password is incorrect"));
     }
   }
 };
@@ -25,13 +30,10 @@ export const registerUser = async (user, dispatch, navigate) => {
     dispatch(registerSuccess());
     navigate("/login");
   } catch (err) {
-    if (err.response) {
-      dispatch(registerError("Tai khoan khong hop le"));
-    }
+    dispatch(registerError("* Email is invalid or already exists"));
   }
 };
-export const LoginedUser = async (token, dispatch, navigate) => {
-  dispatch(loginStart());
-  try {
-  } catch (err) {}
+export const logoutUser = (dispatch, navigate) => {
+  dispatch(logoutSuccess());
+  navigate("/login");
 };

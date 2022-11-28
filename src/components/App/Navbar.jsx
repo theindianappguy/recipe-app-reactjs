@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import DropDownNavbar from "../OtherComponents/IsLogined/DropDownNavbar";
 // import IsLogined from "../OtherComponents/IsLogined/IsLogined";
 
 function Navbar(props) {
@@ -28,23 +29,15 @@ function Navbar(props) {
         </ul>
         {user ? (
           <div className="main">
-            <div className="info-user">
-              <img
-                className="info-user-image"
-                src={
-                  user.user.avatar ||
-                  "https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
-                }
-                alt="photo"
-              />
-            </div>
+            <DropDownNavbar />
+            <div className="bx bx-menu" id="menu-icon"></div>
           </div>
         ) : (
           <div className="main">
             <Link to="login" className="user-login-link">
               <i className="ri-user-fill"></i>Sign In
             </Link>
-            <Link to="user-register-link">Register</Link>
+            <Link to="register">Register</Link>
             <div className="bx bx-menu" id="menu-icon"></div>
           </div>
         )}
