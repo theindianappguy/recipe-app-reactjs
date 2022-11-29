@@ -47,10 +47,10 @@ export default function FormRegister() {
           onChange={(e) => {
             setUsername(e.target.value);
           }}
-          className={handleClass("name")}
+          className={handleClass("username")}
           placeholder="User Name"
         />
-        <ErrorMessageAuth name="name" errors={errors} />
+        <ErrorMessageAuth name="username" errors={errors} />
       </div>
 
       <div className="mb-3">
