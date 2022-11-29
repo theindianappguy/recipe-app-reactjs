@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
+    "@splidejs/react-splide": "^0.7.12",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -13,10 +14,12 @@
     "react-bootstrap": "^2.6.0",
     "react-dom": "^17.0.1",
     "react-hook-form": "^7.39.5",
+    "react-icons": "^4.6.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "sass": "^1.56.1",
+    "styled-components": "^5.3.6",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
