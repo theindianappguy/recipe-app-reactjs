@@ -13,7 +13,7 @@ export default function Dish() {
         <Row className="dish-container-row-1">
           <Col className="dish-container-row-1-img" md={5}>
             <img
-              className="dis-row"
+              className="dis-container-row-1-img-main"
               src="http://cdn.tgdd.vn/Files/2022/01/06/1409476/cach-lam-com-rang-dua-bo-tai-nha-ngon-nhu-ngoai-hang-202201061628031278.jpg"
               alt=""
             />
@@ -26,10 +26,15 @@ export default function Dish() {
           </Col>
         </Row>
         <Row className="dish-container-row-2">
-          <Col md={3}>
+          <Col className="dish-container-row-2-option" md={3}>
             <DishOption />
           </Col>
-          <Col md={{ span: 7, offset: 1 }}>Cac buoc thuc hien</Col>
+          <Col
+            className="dish-container-row-2-description"
+            md={{ span: 7, offset: 1 }}
+          >
+            Cac buoc thuc hien
+          </Col>
         </Row>
       </Container>
       <DishVote />

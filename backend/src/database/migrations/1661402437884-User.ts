@@ -26,7 +26,7 @@ export class User1661402437884 implements MigrationInterface {
           price 				INT NOT NULL,
           vote 						INT NOT NULL,
           views   				INT NOT NULL,
-          CONSTRAINT FK_user_recipe FOREIGN KEY (creator) REFERENCES user(ID)  ON UPDATE CASCADE ON DELETE CASCADE
+          CONSTRAINT FK_user_recipe FOREIGN KEY (creator) REFERENCES user(id)  ON UPDATE CASCADE ON DELETE CASCADE
       )`,
     );
     await queryRunner.query(
@@ -42,8 +42,8 @@ export class User1661402437884 implements MigrationInterface {
         recipe_id 				INT NOT NULL,
         raw_material_id 	INT NOT NULL,
         amount 						INT NOT NULL,
-        CONSTRAINT FK_material_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(ID) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT FK_recipe_material FOREIGN KEY (raw_material_id)  REFERENCES raw_material(ID) ON UPDATE CASCADE ON DELETE CASCADE
+        CONSTRAINT FK_material_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT FK_recipe_material FOREIGN KEY (raw_material_id)  REFERENCES raw_material(id) ON UPDATE CASCADE ON DELETE CASCADE
     );`,
             );
     await queryRunner.query(
@@ -52,8 +52,8 @@ export class User1661402437884 implements MigrationInterface {
         recipe_id 	INT NOT NULL, 
         user_id 		INT NOT NULL,
         amount_star INT NOT NULL,
-        CONSTRAINT FK_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(ID) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT FK_user FOREIGN KEY (user_id) 	REFERENCES user(ID) ON UPDATE CASCADE ON DELETE CASCADE
+        CONSTRAINT FK_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT FK_user FOREIGN KEY (user_id) 	REFERENCES user(id) ON UPDATE CASCADE ON DELETE CASCADE
     )`,
     );
   }

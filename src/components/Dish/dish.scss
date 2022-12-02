@@ -1,28 +1,41 @@
 .dish{
-    border: solid 1px red;
     &-title{
         min-height: 7vh;
     }
     &-container{
-        border: solid 1px blue;
         min-width: 90%;
         margin: 0 5% 0 5%;
         &-row-1{
-            border: solid 1px red;
             margin-bottom: 5vh;
             &-img{
-                background-color: #ddd;
                 img{
-                    width: 600px;
+                    border-radius: 10px;
+                    border: solid 2px #222;
+                    width: 35vw;
                     height: auto;
+                    box-shadow: rgba(100, 100, 111, 0.9) 0px 7px 29px 0px;
                 }
             }
             &-ingredient{
-                background-color: #ddd;
+                box-shadow: rgba(0, 0, 0, 0.7) 1.95px 1.95px 2.6px;
+                border-radius: 10px;
+                border: solid 2px #222; 
+                background-color: #bbb;
             }
         }
         &-row-2{
-            border: solid 1px blue;
+            &-option{
+                height: 15vh;
+                align-items: center;
+                box-sizing: border-box;
+                margin: auto;
+            }
+            &-description{
+                box-shadow: rgba(0, 0, 0, 0.7) 1.95px 1.95px 2.6px;
+                border-radius: 10px;
+                background-color: #ccc;
+                border: solid 2px #222;
+            }
         }
 
     }
