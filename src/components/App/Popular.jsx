@@ -29,7 +29,7 @@ function Popular(props) {
                     drag: "free",
                     gap: "4rem"
                 }}>
-                    {popular.map(
+                    {popular?.map(
                         (recipe)=> {
                             return (
                                 <SplideSlide>
