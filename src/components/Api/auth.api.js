@@ -36,7 +36,4 @@ export const logoutUser = (dispatch, navigate) => {
   dispatch(logoutSuccess());
   navigate("/login");
 };
-export const deleteError = (dispatch, navigate) => {
-  dispatch(clearRedux());
-  navigate("/login");
-};
+

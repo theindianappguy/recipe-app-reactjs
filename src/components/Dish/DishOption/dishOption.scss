@@ -1,0 +1,13 @@
+.dish-option{
+    display: flex;
+    flex-direction: column;
+    button{
+        border: none;
+        &:focus{
+            outline: none;
+            background-color: #ccc;
+        }
+    }
+    
+
+}

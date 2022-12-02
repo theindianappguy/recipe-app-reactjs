@@ -8,6 +8,7 @@ import Profile from "../Dashboard/Profile";
 import React from "react";
 import Login from "../Authentication/Login/Index";
 import Register from "../Authentication/Register/Index";
+import Dish from "../Dish/Dish";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
+        <Route path="dish" element={<Dish />} />
       </Route>
     </Routes>
   );
