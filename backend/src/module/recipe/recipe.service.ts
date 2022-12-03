@@ -33,6 +33,14 @@ export class RecipeService {
     console.log('abc',name)
     return this.recipeRepo.find({where:{ name: name }});
   }
+  async saveRecipe(id: number,userId:number){
+    const recipe=await this.recipeRepo.findOne({where:{ id: id }});
+    if(recipe.creator===1)
+    { 
+      recipe.creator=userId;
+    }
+    return this.recipeRepo.save(recipe);
+  }
   async filter(id:number) {
     const queryBuilder = this.rawMaterialRepo.createQueryBuilder('raw_material');
     queryBuilder.leftJoinAndSelect(`raw_material.listRecipe`, `recipe_raw_material`);

@@ -1,15 +1,27 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateVotingDto } from './dto/create-voting.dto';
 import { UpdateVotingDto } from './dto/update-voting.dto';
+import { Voting } from './entities/voting.entity';
 
 @Injectable()
 export class VotingService {
+  constructor(
+  @InjectRepository(Voting)
+  private readonly votingRepo:Repository<Voting>,
+  ){}
   create(createVotingDto: CreateVotingDto) {
-    return 'This action adds a new voting';
+    return this.votingRepo.save(createVotingDto)
   }
 
-  findAll() {
-    return `This action returns all voting`;
+  async getStars(id:number) {
+    const playlist = this.votingRepo.createQueryBuilder("voting")
+    playlist.where("voting.recipe_id = :id", { id })
+    playlist.select("AVG(voting.amount_star)")
+    const data= await playlist.getRawOne()
+    return data;
+    // return this.votingRepo.findOne({where:{id:id}});
   }
 
   findOne(id: number) {
