@@ -4,6 +4,8 @@ import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { UpdateRecipeDto } from './dto/update-recipe.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { Public } from '../auth/public.decorator';
+import { CreateRawMaterial } from './dto/create-raw-material';
+import { CreateRecipeRawDto } from './dto/recipe-raw-material.dto';
 @ApiTags('Recipe')
 @Controller('recipe')
 export class RecipeController {
@@ -13,20 +15,35 @@ export class RecipeController {
   create(@Body() createRecipeDto: CreateRecipeDto) {
     return this.recipeService.create(createRecipeDto);
   }
-
+  @Public()
+  @Post('/rawmaterial')
+  createRawMaterial(@Body() createRecipeDto: CreateRawMaterial) {
+    return this.recipeService.createRawMaterial(createRecipeDto);
+  }
+  @Public()
+  @Post('/recipematerial')
+  createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto) {
+    return this.recipeService.createRecipeMaterial(createRecipeDto);
+  }
   // @Get()
   // findAll() {
   //   return this.recipeService.findAll();
   // }
   @Public()
   @Get(':name')
-  findOne(@Param('name') name: string) {
+  search(@Param('name') name: string) {
     return this.recipeService.search(name);
   }
-  // @Get(':id')
-  // search(@Param('id') id: string) {
-  //   return this.recipeService.findOne(+id);
-  // }
+  @Public()
+  @Post('/save/:id/:userId')
+  saveRecipe(@Param('id') id: number,@Param('userId') userId: number) {
+    return this.recipeService.saveRecipe(id,userId);
+  }
+  @Public()
+  @Get('recipe/:id')
+  filter(@Param('id') id: number) {
+    return this.recipeService.filter(+id)
+  }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateRecipeDto: UpdateRecipeDto) {
