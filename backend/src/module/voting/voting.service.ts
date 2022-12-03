@@ -18,7 +18,7 @@ export class VotingService {
   async getStars(id:number) {
     const playlist = this.votingRepo.createQueryBuilder("voting")
     playlist.where("voting.recipe_id = :id", { id })
-    playlist.select("AVG(voting.amount_star)")
+    playlist.select("AVG(voting.amount_star)",'avg')
     const data= await playlist.getRawOne()
     return data;
     // return this.votingRepo.findOne({where:{id:id}});
