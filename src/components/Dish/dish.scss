@@ -20,7 +20,10 @@
                 box-shadow: rgba(0, 0, 0, 0.7) 1.95px 1.95px 2.6px;
                 border-radius: 10px;
                 border: solid 2px #222; 
-                background-color: #bbb;
+                background-color: #ddd;
+                ul{
+                    text-align: left;
+                }
             }
         }
         &-row-2{
@@ -28,13 +31,14 @@
                 height: 15vh;
                 align-items: center;
                 box-sizing: border-box;
-                margin: auto;
+                margin: 0 auto;
             }
             &-description{
                 box-shadow: rgba(0, 0, 0, 0.7) 1.95px 1.95px 2.6px;
                 border-radius: 10px;
-                background-color: #ccc;
+                background-color: #ddd;
                 border: solid 2px #222;
+                text-align: left;
             }
         }
 

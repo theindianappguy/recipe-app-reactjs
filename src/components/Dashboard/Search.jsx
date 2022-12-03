@@ -1,49 +1,143 @@
-import React, { useState } from "react";
-import Axios from "axios";
-import RecipeTile from "../Recipe";
+import React, { useState, useEffect } from "react";
+import "../../CSS/search.css";
+import { useParams, Link } from "react-router-dom";
+import styled from "styled-components";
 
 function Search(props) {
-  const [query, setQuery] = useState("");
-  const [recipes, setRecipes] = useState([]);
+  // const [query, setQuery] = useState("");
+  const [searchedRecipes, setSearchedRecipes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const YOUR_APP_ID = `82e453da`;
-  const YOUR_APP_KEY = "3bb5d1a3b992f408b9003effd74c9c22";
+  const getSearchedRecipes = async (search) => {
+    const resp = await fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&query=${search}`
+    );
+    const data = await resp.json();
 
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
-
-  const getRecipeInfo = async () => {
-    let result = await Axios.get(url);
-    setRecipes(result.data.hits);
+    return data.results;
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    getRecipeInfo();
+  const handleChangeSearch = (event) => {
+    setSearchTerm(event.target.value);
   };
+
+  const onClickToSearch = () => {
+    getSearchedRecipes(searchTerm).then((data) => {
+      setSearchedRecipes(data);
+    });
+  };
+
+  useEffect(() => {
+    getSearchedRecipes(searchTerm).then((data) => {
+      setSearchedRecipes(data);
+    });
+  });
 
   return (
-    <div>
-      <h1 onClick={getRecipeInfo}>Food Recipe Plaza 🍔</h1>
-      <form className="app__searchForm" onSubmit={onSubmit}>
+    <div className="search-container">
+      {/* <h1 onClick={getRecipeInfo}>Food Recipe Plaza 🍔</h1> */}
+      {/* <div>
+               <input type="text" placeholder="Search.." className="search"/>
+            </div> */}
+      <div className="form-select">
+        <label htmlFor="order-select">Order by:</label>
+        <select className="orderBy" id="orderBy-select">
+          <option value="none">--None--</option>
+          <option value="name">Name</option>
+          <option value="price">Price</option>
+          <option value="vote">Vote</option>
+          <option value="view">View</option>
+        </select>
+        <label htmlFor="price-select">Price:</label>
+        <select className="price" id="price-select">
+          <option value="default">--Default--</option>
+          <option value="">0 - $1.99</option>
+          <option value="">$2 - $5</option>
+          <option value="">$5 - $10</option>
+        </select>
+        <label htmlFor="pet-select">Search:</label>
+        {/* <FaSearch /> */}
         <input
-          className="app__input"
           type="text"
-          placeholder="enter ingredient"
-          autoComplete="Off"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search.."
+          className="search"
+          onChange={(e) => handleChangeSearch(e)}
         />
-        <input className="app__submit" type="submit" value="Search" />
-      </form>
+      </div>
+      <div className="form-check">
+        <p>Ingredient</p>
+        <div>
+          <div>
+            <label className="container-checkbox">
+              Rice
+              <input type="checkbox" />
+              <span className="checkmark"></span>
+            </label>
+            <label className="container-checkbox">
+              Chicken
+              <input type="checkbox" />
+              <span className="checkmark"></span>
+            </label>
+          </div>
 
-      <div className="app__recipes">
-        {recipes !== [] &&
-          recipes.map((recipe) => {
-            return <RecipeTile recipe={recipe} />;
-          })}
+          <div>
+            <label className="container-checkbox">
+              Orange
+              <input type="checkbox" />
+              <span className="checkmark"></span>
+            </label>
+
+            <label className="container-checkbox">
+              Cheery
+              <input type="checkbox" />
+              <span className="checkmark"></span>
+            </label>
+          </div>
+          <span className="more">More...</span>
+        </div>
+      </div>
+      <div className="btn-search">
+        <button className="button-4" onClick={onClickToSearch}>
+          Search
+        </button>
+        <button className="button-4">Clear</button>
+      </div>
+      <div className="recipes-card">
+        <Grid>
+          {searchedRecipes.map(({ title, id, image }) => (
+            <Card key={id}>
+              <Link to={`/recipe/${id}`}>
+                <img src={image} alt={title} />
+                <h5>{title}</h5>
+              </Link>
+            </Card>
+          ))}
+        </Grid>
       </div>
     </div>
   );
 }
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  text-align: center;
+  gap: 2rem;
+`;
+
+const Card = styled.div`
+  img {
+    width: min(320px, 100%);
+    border-radius: 2rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  h5 {
+    text-align: center;
+    padding: 1rem;
+    color: #ec875b;
+  }
+`;
 
 export default Search;
