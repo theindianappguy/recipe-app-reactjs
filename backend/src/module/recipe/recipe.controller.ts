@@ -35,6 +35,11 @@ export class RecipeController {
     return this.recipeService.search(name);
   }
   @Public()
+  @Get('/get/:id')
+  findOne(@Param('id') id: number) {
+    return this.recipeService.findOne(id);
+  }
+  @Public()
   @Post('/save/:id/:userId')
   saveRecipe(@Param('id') id: number,@Param('userId') userId: number) {
     return this.recipeService.saveRecipe(id,userId);
