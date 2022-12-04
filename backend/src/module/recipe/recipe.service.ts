@@ -59,6 +59,13 @@ export class RecipeService {
       },
     });
   }
+findOne(id: number) {
+    return  this.recipeRepo.findOne({
+      where: {
+        id: id,
+      },
+    });
+  }
 
   update(id: number, updateRecipeDto: UpdateRecipeDto) {
     return `This action updates a #${id} recipe`;
