@@ -10,7 +10,7 @@ import Login from "../Authentication/Login/Index";
 import Register from "../Authentication/Register/Index";
 import Home from "../Dashboard/Home";
 import Dish from "../Dish/Dish";
-
+import ModalLogin from "../Dish/DishVote/ModalLogin";
 function App() {
   return (
     <Routes>
@@ -23,6 +23,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="dish/:id" element={<Dish />} />
+        <Route path="button" element={<ModalLogin />} />
       </Route>
     </Routes>
   );

@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { userVote } from "../../Api/dish.api";
 import "./dishVote.scss";
+import ModalLogin from "./ModalLogin";
 
 const colors = {
   orange: "#FFBA5A",
@@ -8,15 +12,22 @@ const colors = {
 };
 
 function DishVote() {
+  const param = useParams();
+  const loginedUser = useSelector((state) => state.auth.login.currentUser);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
-
   const handleClickStar = (value) => {
     setCurrentValue(value);
   };
   const handleClick = () => {
-    console.log(currentValue);
+    const data = {
+      recipe_id: Number(param.id),
+      user_id: loginedUser.user.id,
+      amount_star: currentValue,
+    };
+    console.log(data);
+    userVote(data);
   };
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -50,13 +61,7 @@ function DishVote() {
           );
         })}
       </div>
-      <button
-        className="dish-vote-button"
-        onClick={handleClick}
-        style={styles.button}
-      >
-        Vote
-      </button>
+      <ModalLogin handleClick={handleClick} />
     </div>
   );
 }
