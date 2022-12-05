@@ -103,7 +103,7 @@ function Search(props) {
       </div>
       <div className="recipes-card">
         <Grid>
-          {searchedRecipes.map(({ title, id, image }) => (
+          {searchedRecipes?.map(({ title, id, image }) => (
             <Card key={id}>
               <Link to={`/recipe/${id}`}>
                 <img src={image} alt={title} />

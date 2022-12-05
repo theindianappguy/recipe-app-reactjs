@@ -7,7 +7,7 @@ import { RawMaterial } from './entities/raw-material.entity';
 import { RecipeRawMaterial } from './entities/recipe-raw-material.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Recipe,RawMaterial,RecipeRawMaterial])],
+  imports: [TypeOrmModule.forFeature([Recipe, RawMaterial, RecipeRawMaterial])],
   controllers: [RecipeController],
   providers: [RecipeService],
   exports: [RecipeService],

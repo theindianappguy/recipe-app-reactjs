@@ -1,24 +1,10 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-9
-	yarn.lock,5\3\53585a096fe3a3b96321113856ae62602995a33b
 `
 0src/components/Authentication/Register/Index.jsx,4\5\45c57026d982e2e4ae5d8594300d28a21a495124
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-<
-src/store.js,e\5\e5a2735375b021a063f28df6dd2434503bb70c9b
-R
-"src/components/Dashboard/Share.jsx,b\9\b9ae8a6e51a56e567e6aceb459eb5267e772af0e
 T
 $src/components/Dashboard/Profile.jsx,5\9\59ae2fca9c4af513ae59da9245eeb430236f93b3
-;
-src/app.css,f\8\f84891de375015dbc3259b098070fffaa6c0752c
-I
-src/components/App/App.js,0\e\0e0456ef151500587d05f053b8624a4f4ddd30fb
-<
-package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 M
 src/components/App/Veggie.jsx,8\f\8ff970b53957a6c5968716c50398b2eaa2a361c8
 A
@@ -41,8 +27,6 @@ t
 Dsrc/components/Authentication/Register/FormRegister/FormRegister.jsx,d\f\dfa22caa9ef114a83a1254b914d3d9a69143ffa0
 ^
 .src/components/Authentication/Logout/Index.jsx,4\9\498651963c1b417ddc7091f6cc602dcb75249a3a
-N
-src/components/Api/auth.api.js,5\2\52e1fb0f72236aa0598dfa6bdbfebbfa8cc51767
 <
 backend/.env,f\3\f30451335edfb80e231f658d0defc83bb7e4c3a7
 k
@@ -55,8 +39,6 @@ j
 src/CSS/app.css,d\c\dcc0a3f3b388c8b8125c68e1de8491250d905e78
 S
 #src/components/Dashboard/Search.jsx,d\a\da07f721d29980aa6debbb88f7beb56c777d1778
-M
-src/components/App/Navbar.jsx,a\0\a0aed0b635547ec7b84678e7ddb208f1962a99ac
 4
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 G
@@ -65,3 +47,7 @@ t
 Dsrc/components/Authentication/ErrorMessage/ErrMessageAuthBackend.jsx,3\d\3d4f9b87dce3a3b2eec541b19b2435cf4e9c65e9
 o
 ?src/components/Authentication/ErrorMessage/ErrorMessageAuth.jsx,d\d\dddbdf97841c7dd08fc5985b0da2db4bdfe134cc
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+D
+backend/package.json,2\d\2d67691333633e849af94af966942f0c1b3151c6

@@ -17,16 +17,16 @@ export class User1661402437884 implements MigrationInterface {
     await queryRunner.query(
       `CREATE TABLE IF NOT EXISTS recipe (
           id 						INT 					NOT NULL PRIMARY KEY AUTO_INCREMENT,
-          name 					VARCHAR(50) 	NOT NULL,
+          name 					VARCHAR(50) 	 NOT NULL UNIQUE,
           description 	LONGTEXT NOT NULL,
           image 				LONGBLOB 			NOT NULL,
           formula 			LONGTEXT         NOT NULL,
           note  				LONGTEXT       NOT NULL,
           creator 		  INT NOT NULL,
           price 				INT NOT NULL,
-          vote 						INT NOT NULL,
-          views   				INT NOT NULL,
-          CONSTRAINT FK_user_recipe FOREIGN KEY (creator) REFERENCES user(id)  ON UPDATE CASCADE ON DELETE CASCADE
+          vote 					INT NOT NULL,
+          views   			INT NOT NULL,
+          CONSTRAINT FK_user_recipe FOREIGN KEY (creator) REFERENCES user(ID)  ON UPDATE CASCADE ON DELETE CASCADE
       )`,
     );
     await queryRunner.query(
@@ -38,12 +38,14 @@ export class User1661402437884 implements MigrationInterface {
     );
     await queryRunner.query(
       `CREATE TABLE IF NOT EXISTS recipe_raw_material (
-        id 					      INT NOT NULL,
-        recipe_id 			  INT NOT NULL,
+        id                  INT UNIQUE AUTO_INCREMENT
+        recipe_id 			INT NOT NULL,
         raw_material_id 	INT NOT NULL,
-        amount 						INT NOT NULL,
-        CONSTRAINT FK_material_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(id) ON UPDATE CASCADE ON DELETE CASCADE,
-        CONSTRAINT FK_recipe_material FOREIGN KEY (raw_material_id)  REFERENCES raw_material(id) ON UPDATE CASCADE ON DELETE CASCADE
+        amount 				    FLOAT NOT NULL,
+        PRIMARY KEY (recipe_id, raw_material_id),
+        CONSTRAINT FK_material_recipe FOREIGN KEY (recipe_id) REFERENCES recipe(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+        CONSTRAINT FK_recipe_material FOREIGN KEY (raw_material_id)  REFERENCES raw_material(ID) ON UPDATE CASCADE ON DELETE CASCADE
+
     );`,
     );
     await queryRunner.query(

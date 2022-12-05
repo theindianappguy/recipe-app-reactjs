@@ -1,5 +1,5 @@
 input {
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     border: 1px solid #b9c3c7;
 }
 
@@ -29,11 +29,12 @@ h2 span{
     margin-bottom: 50px;
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
 }
 
 .recipe-form-1 .add-image {
     background: #dccaca;
-    margin-right: 100px;
+    margin-right: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,21 +70,23 @@ input[type="file"]{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 400px;
-    width: 400px;
-    border-radius: 10px;
+    /*height: 500px;*/
+    width: 450px;
+    /*border-radius: 10px;*/
 }
 
 .add-text .recipe-name-add{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 10px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
     text-align: center;
 }
 
 .add-text .recipe-name-add .recipe-name-add-item {
-    width: 120px;
+    height: 25px;
+    width: 215px;
     background-color: #ed9166;
     border-radius: 6px;
     color: #ffffff;
@@ -91,16 +94,18 @@ input[type="file"]{
 }
 
 .add-text .recipe-name-add .recipe-name-add-input {
-    width: 205px;
-    margin-left: 155px;
+    width: 220px;
+    /*margin-left: 20px;*/
+    height: 25px;
 }
 
-.add-text p {
-    width: 100px;
-    margin-left: 40px;
+.add-text .ingredient-add p {
+    width: 215px;
+    /*margin-left: 40px;*/
     background-color: #ed9166;
     border-radius: 6px;
     color: #ffffff;
+    height: 25px;
 }
 
 .ingredient-add{
@@ -109,25 +114,82 @@ input[type="file"]{
     justify-content: space-between;
 }
 
-.ingredient-add .ingredient-add-item{
-    /*width: fit-content;*/
+.ingredient-add .ingredient-add-item {
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin-right: 40px;
-    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-right: 15px; */
+    margin-bottom: 10px;
+    position: relative;
 }
 
-.ingredient-add button {
-    width: 30px;
-    height: 25px;
-    text-align: center;
-    border-radius: 10px;
-    color: greenyellow;
-    background-color: greenyellow;
-    border: 0.5px solid;
+.ingredient-add .ingredient-add-item-name {
+    display: flex;
+    flex-direction: column;
+    /*width: fit-content;*/
+    text-align: left;
+}
+
+.ingredient-add .ingredient-add-item-name{
+    /*margin-right: 25px;*/
+    margin-right: 15px;
+}
+
+.ingredient-add .ingredient-add-item input {
+    width: 217px;
+}
+
+.ingredient-add .ingredient-add-item label {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.delete-item-ingredient-add-item {
+    position: absolute;
+    right: -25px;
+    top: 35px;
     cursor: pointer;
-    margin-left: 150px;
+}
+
+
+.delete-item-ingredient-add-item:hover{
+    color: #fd6929;
+}
+
+.delete-item-ingredient-add-item:active{
+    color: #ae7b67;
+}
+
+.ingredient-add .btn-add-ingredient {
+    /*size: 30px;*/
+    /*width: 30px;*/
+    /*height: 25px;*/
+    text-align: center;
+    /* border-radius: 10px; */
+    color: rgba(86, 118, 39, 0.5);
+    /* background-color: greenyellow; */
+    /* border: 0.5px solid; */
+    border: none;
+    cursor: pointer;
+    /*margin-left: 10px;*/
     margin-top: 10px;
+}
+
+.ingredient-add .btn-add-ingredient:hover {
+    /*width: 30px;*/
+    /*height: 25px;*/
+    text-align: center;
+    /* border-radius: 10px; */
+    color: rgba(118, 162, 55, 0.5);
+}
+
+.ingredient-add .btn-add-ingredient:active {
+    /*width: 30px;*/
+    /*height: 25px;*/
+    text-align: center;
+    /* border-radius: 10px; */
+    color: rgba(162, 223, 75, 0.5);
 }
 
 .div-input-text-add {
@@ -227,3 +289,11 @@ input[type="file"]{
     }
 }
 
+.login-after-share {
+    margin-top: 50px;
+}
+
+.login-after-share p{
+    margin-top: 20px;
+    font-size: 25px;
+}
