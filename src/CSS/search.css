@@ -1,0 +1,218 @@
+label {
+    /*font-family: sans-serif;*/
+    font-size: 1rem;
+    padding-right: 10px;
+}
+
+select {
+    font-size: 0.9rem;
+    padding: 2px 5px;
+    border: none;
+}
+
+select option {
+    cursor: pointer;
+}
+
+.form-select{
+    margin-top: 50px;
+    margin-left: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.form-select .orderBy{
+    margin-right: 100px;
+    cursor: pointer;
+}
+
+.form-select .price{
+    cursor: pointer;
+    margin-right: 100px;
+}
+
+/*.form-select select {*/
+/*    width:200px;*/
+/*}*/
+
+/*=========================================================form-check=====================================================*/
+
+.form-check {
+    background: white;
+    height: 170px;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    /*max-width: 90%;*/
+    /*width: 1000px;*/
+    min-width: 50%;
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.container-checkbox {
+    /*display: block;*/
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 200px;
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.form-check .more {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form-check .more:hover {
+    color: #fd6929;
+}
+
+.form-check .more:active {
+    color: #ec875b;
+}
+
+/*======================================================btn-search=============================================================*/
+
+.btn-search{
+    margin-top: 15px;
+    margin-left: 190px;
+    margin-right: 190px;
+    /*width: 50%;*/
+    display: flex;
+    justify-content: center;
+}
+
+.btn-search button {
+    margin-right: 55px;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+}
+
+                                                     /* CSS */
+ .button-4 {
+     appearance: none;
+     background-color: #FAFBFC;
+     border: 1px solid rgba(27, 31, 35, 0.15);
+     border-radius: 6px;
+     box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+     box-sizing: border-box;
+     color: #24292E;
+     cursor: pointer;
+     display: inline-block;
+     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+     font-size: 14px;
+     font-weight: 500;
+     line-height: 20px;
+     list-style: none;
+     padding: 6px 16px;
+     position: relative;
+     transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+     user-select: none;
+     -webkit-user-select: none;
+     touch-action: manipulation;
+     vertical-align: middle;
+     white-space: nowrap;
+     word-wrap: break-word;
+ }
+
+.button-4:hover {
+    background-color: #F3F4F6;
+    text-decoration: none;
+    transition-duration: 0.1s;
+}
+
+.button-4:disabled {
+    background-color: #FAFBFC;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959DA5;
+    cursor: default;
+}
+
+.button-4:active {
+    background-color: #EDEFF2;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+    transition: none 0s;
+}
+
+.button-4:focus {
+    outline: 1px transparent;
+}
+
+.button-4:before {
+    display: none;
+}
+
+.button-4::-webkit-details-marker {
+    display: none;
+}
+
+
+.recipes-card{
+    width: 90%;
+    margin-left: 100px;
+    margin-top: 100px;
+}

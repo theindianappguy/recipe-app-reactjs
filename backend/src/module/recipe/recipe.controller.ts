@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { RecipeService } from './recipe.service';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { UpdateRecipeDto } from './dto/update-recipe.dto';
@@ -41,13 +49,13 @@ export class RecipeController {
   }
   @Public()
   @Post('/save/:id/:userId')
-  saveRecipe(@Param('id') id: number,@Param('userId') userId: number) {
-    return this.recipeService.saveRecipe(id,userId);
+  saveRecipe(@Param('id') id: number, @Param('userId') userId: number) {
+    return this.recipeService.saveRecipe(id, userId);
   }
   @Public()
   @Get('recipe/:id')
   filter(@Param('id') id: number) {
-    return this.recipeService.filter(+id)
+    return this.recipeService.filter(+id);
   }
 
   // @Patch(':id')
