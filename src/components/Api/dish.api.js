@@ -8,7 +8,7 @@ export const getDish = async (dishData, dispatch) => {
   dispatch(getDishStart());
   try {
     const res = await axios.get(
-      `https://api.spoonacular.com/recipes/${dishData}/information?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}`
+      `https://api.spoonacular.com/recipes/${dishData}/information?apiKey=${process.env.REACT_APP_FOOD_API_KEY1}&includeNutrition=true`
     );
     dispatch(getDishSuccess(res));
   } catch (err) {

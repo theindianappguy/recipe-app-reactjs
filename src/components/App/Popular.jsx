@@ -14,7 +14,7 @@ function Popular(props) {
   }, []);
   const getPopular = async () => {
     const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&number=9`
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY1}&number=9`
     );
     const data = await api.json();
     setPopular(data.recipes);

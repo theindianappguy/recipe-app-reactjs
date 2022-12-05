@@ -34,7 +34,7 @@ export default function Dish() {
             md={{ span: 5, offset: 1 }}
           >
             <ul>
-              {dishData?.data.extendedIngredients.map((s, index) => {
+              {dishData?.data?.extendedIngredients?.map((s, index) => {
                 return <li>{`${index + 1}. ${s.original}`}</li>;
               })}
             </ul>
@@ -51,7 +51,7 @@ export default function Dish() {
             {option === 0 && dishData && Parser(dishData?.data.summary)}
             <ul>
               {option === 1 &&
-                dishData?.data.analyzedInstructions[0].steps.map((s) => {
+                dishData?.data?.analyzedInstructions[0]?.steps?.map((s) => {
                   return <li>{`Step${s?.number}: ${s?.step}`}</li>;
                 })}
             </ul>

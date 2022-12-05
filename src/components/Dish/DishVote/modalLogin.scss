@@ -1,0 +1,7 @@
+.vote-button{
+    font-size: 1.75rem;
+    background-color: rgba(0,112,116,255);
+    &:hover{
+        background-color: rgba(0,112,116,0.8);
+    }
+}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { userVote } from "../../Api/dish.api";
 import "./dishVote.scss";
 import ModalLogin from "./ModalLogin";
@@ -28,6 +29,9 @@ function DishVote() {
     };
     console.log(data);
     userVote(data);
+    toast.success("Voted success", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   };
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import ErrorMessageAuth from "../../Authentication/ErrorMessage/ErrorMessageAuth";
 import { loginUserModal } from "../../Api/auth.api";
+import "./formLoginModal.scss";
 export default function FormLoginModal({ hide }) {
   const dispatch = useDispatch();
   const { currentUserError } = useSelector((state) => state.auth.login);
@@ -81,16 +82,12 @@ export default function FormLoginModal({ hide }) {
         </div>
       )}
       <div className="d-grid">
-        <button
-          type="submit"
-          className="btn btn-primary"
-          style={{ backgroundColor: "rgba(255, 146, 101, 0.9)" }}
-        >
+        <button type="submit" className="btn btn-primary modal-login-button">
           Login
         </button>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-danger"
           style={{ backgroundColor: "rgba(218, 30, 81, 0.8)" }}
           onClick={hide}
         >

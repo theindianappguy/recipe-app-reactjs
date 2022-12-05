@@ -52,7 +52,7 @@ const Veggie = () => {
         {veggies?.map(({ title, id, image }) => (
           <SplideSlide key={id}>
             <Card>
-              <Link to={`/recipe/${id}`}>
+              <Link to={`/dish/${id}`}>
                 <p>{title}</p>
                 <img src={image} alt={title} />
                 <Gradient />

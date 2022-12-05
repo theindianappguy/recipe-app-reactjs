@@ -1,6 +1,14 @@
 .dish{
     &-title{
-        min-height: 7vh;
+        margin-top: 2vh;
+        min-height: 9vh;
+        h1{
+            font-weight: 900;
+            color:rgba(129, 73, 3, 1);
+            text-shadow: 3px 0px 7px rgba(81,67,21,0.8), 
+	  -3px 0px 7px rgba(81,67,21,0.8), 
+	  0px 4px 7px rgba(81,67,21,0.8);
+        }
     }
     &-container{
         min-width: 90%;
@@ -20,23 +28,35 @@
                 box-shadow: rgba(0, 0, 0, 0.7) 1.95px 1.95px 2.6px;
                 border-radius: 10px;
                 border: solid 2px #222; 
-                background-color: #ddd;
+                background-color: rgba(228, 138, 138, 0.25);
                 ul{
                     text-align: left;
+                    font-size: 1.25rem;
+                    li{
+                        line-height: 1.5;
+                    }
+                    li:hover{
+                        color: rgba(208, 148, 3, 1);
+                        transition-duration: 0.2s;
+                    }
                 }
             }
         }
         &-row-2{
             &-option{
+                font-size: 1.75rem;
                 height: 15vh;
                 align-items: center;
                 box-sizing: border-box;
                 margin: 0 auto;
             }
             &-description{
+                color: rgba(129, 73, 3, 1);
+                font-size: 1.25rem;
+                line-height: 1.5;
                 box-shadow: rgba(0, 0, 0, 0.7) 1.95px 1.95px 2.6px;
                 border-radius: 10px;
-                background-color: #ddd;
+                background-color: rgba(228, 138, 138, 0.25);
                 border: solid 2px #222;
                 text-align: left;
             }
