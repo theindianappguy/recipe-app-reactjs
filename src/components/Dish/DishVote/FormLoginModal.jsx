@@ -84,14 +84,14 @@ export default function FormLoginModal({ hide }) {
         <button
           type="submit"
           className="btn btn-primary"
-          style={{ backgroundColor: "#007074" }}
+          style={{ backgroundColor: "rgba(255, 146, 101, 0.9)" }}
         >
           Login
         </button>
         <button
           type="button"
           className="btn btn-primary"
-          style={{ backgroundColor: "#007074" }}
+          style={{ backgroundColor: "rgba(218, 30, 81, 0.8)" }}
           onClick={hide}
         >
           Cancel

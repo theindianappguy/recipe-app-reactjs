@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../CSS/search.css";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
-
 function Search(props) {
   // const [query, setQuery] = useState("");
   const [searchedRecipes, setSearchedRecipes] = useState([]);
