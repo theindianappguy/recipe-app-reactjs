@@ -1,0 +1,24 @@
+.dish-option{
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    border: solid 2px #222;
+    button{
+        font-weight:500 ;
+        &:hover{
+            background-color: #bbb;
+            color: rgba(129, 73, 3, 1);
+            transition-duration: 0.4s;
+        }
+        width: 100%;
+        border: none;
+        border-bottom: solid 1px #eee;
+        &:focus{
+            outline: none;
+            background-color: #ccc;
+        }
+        
+    }
+    
+
+}

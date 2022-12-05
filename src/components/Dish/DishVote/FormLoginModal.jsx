@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { clearRedux } from "../../../../Redux/auth.slice";
-import ErrorMessageAuth from "../../ErrorMessage/ErrorMessageAuth";
-import { loginUser } from "../../../Api/auth.api";
-export default function FormLogin() {
+import ErrorMessageAuth from "../../Authentication/ErrorMessage/ErrorMessageAuth";
+import { loginUserModal } from "../../Api/auth.api";
+import "./formLoginModal.scss";
+export default function FormLoginModal({ hide }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { currentUserError } = useSelector((state) => state.auth.login);
   const {
     register,
@@ -23,11 +21,11 @@ export default function FormLogin() {
   const handleClass = (name, baseClass = "form-control") =>
     `${baseClass} ${errors[name] ? "is-invalid" : ""}`;
   const onSubmit = (data) => {
-    loginUser(data, dispatch, navigate);
+    loginUserModal(data, dispatch);
+    hide();
   };
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-      <h3>Welcome to Soma Team</h3>
       <div className="mb-3">
         <label>Email address</label>
         <input
@@ -84,20 +82,18 @@ export default function FormLogin() {
         </div>
       )}
       <div className="d-grid">
-        <button
-          type="submit"
-          className="btn btn-primary"
-          style={{ backgroundColor: "#007074" }}
-        >
+        <button type="submit" className="btn btn-primary modal-login-button">
           Login
         </button>
+        <button
+          type="button"
+          className="btn btn-danger"
+          style={{ backgroundColor: "rgba(218, 30, 81, 0.8)" }}
+          onClick={hide}
+        >
+          Cancel
+        </button>
       </div>
-      <p className="form-login-signup text-right">
-        Don't have account{" "}
-        <Link to="/register" onClick={() => dispatch(clearRedux())}>
-          Sign up?
-        </Link>
-      </p>
     </form>
   );
 }

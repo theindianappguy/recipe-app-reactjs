@@ -7,62 +7,62 @@ import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import { Link } from "react-router-dom";
 
 const Veggie = () => {
-    const [veggies, setVeggies] = useState([]);
+  const [veggies, setVeggies] = useState([]);
 
-    const getVeggies = async () => {
-        const getData = localStorage.getItem("veggies");
+  const getVeggies = async () => {
+    const getData = localStorage.getItem("veggies");
 
-        if (getData && getData !== "undefined") {
-            setVeggies(JSON.parse(getData));
-        } else {
-            const resp = await fetch(
-                `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&tags=vegetarian&number=10`
-            );
-            const data = await resp.json();
-            setVeggies(data.recipes);
-            localStorage.setItem("veggies", JSON.stringify(data.recipes));
-            console.log(data.recipes);
-        }
-    };
+    if (getData && getData !== "undefined") {
+      setVeggies(JSON.parse(getData));
+    } else {
+      const resp = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&tags=vegetarian&number=10`
+      );
+      const data = await resp.json();
+      setVeggies(data.recipes);
+      localStorage.setItem("veggies", JSON.stringify(data.recipes));
+      console.log(data.recipes);
+    }
+  };
 
-    useEffect(() => {
-        getVeggies();
-    }, []);
+  useEffect(() => {
+    getVeggies();
+  }, []);
 
-    return (
-        <Wrapper>
-            <h3>Vegetarian Picks</h3>
-            <Splide
-                options={{
-                    perPage: 5,
-                    arrows: false,
-                    pagination: false,
-                    drag: "free",
-                    gap: "4rem",
-                    breakpoints: {
-                        767: {
-                            perPage: 2,
-                        },
-                        640: {
-                            perPage: 1,
-                        },
-                    },
-                }}
-            >
-                {veggies.map(({ title, id, image }) => (
-                    <SplideSlide key={id}>
-                        <Card>
-                            <Link to={`/recipe/${id}`}>
-                                <p>{title}</p>
-                                <img src={image} alt={title} />
-                                <Gradient />
-                            </Link>
-                        </Card>
-                    </SplideSlide>
-                ))}
-            </Splide>
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+      <h3>Vegetarian Picks</h3>
+      <Splide
+        options={{
+          perPage: 5,
+          arrows: false,
+          pagination: false,
+          drag: "free",
+          gap: "4rem",
+          breakpoints: {
+            767: {
+              perPage: 2,
+            },
+            640: {
+              perPage: 1,
+            },
+          },
+        }}
+      >
+        {veggies?.map(({ title, id, image }) => (
+          <SplideSlide key={id}>
+            <Card>
+              <Link to={`/dish/${id}`}>
+                <p>{title}</p>
+                <img src={image} alt={title} />
+                <Gradient />
+              </Link>
+            </Card>
+          </SplideSlide>
+        ))}
+      </Splide>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`

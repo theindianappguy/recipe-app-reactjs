@@ -29,9 +29,9 @@ export class RecipeService {
   createRecipeMaterial(createRecipeRawDto: CreateRecipeRawDto) {
     return this.recipeRawMaterialRepo.save(createRecipeRawDto);
   }
-  search(name: string) {
-    console.log('abc', name);
-    return this.recipeRepo.find({ where: { name: name } });
+  search(name: string){
+    console.log('abc',name)
+    return this.recipeRepo.find({where:{ name: name }});
   }
   async saveRecipe(id: number, userId: number) {
     const recipe = await this.recipeRepo.findOne({ where: { id: id } });
