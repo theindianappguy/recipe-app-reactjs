@@ -2,11 +2,11 @@ import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { userVote } from "../../Api/dish.api";
 import "./dishVote.scss";
 import ModalLogin from "./ModalLogin";
-
+import "react-toastify/dist/ReactToastify.css";
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
@@ -23,15 +23,11 @@ function DishVote() {
   };
   const handleClick = () => {
     const data = {
-      recipe_id: Number(param.id),
+      recipe_id: 0,
       user_id: loginedUser.user.id,
       amount_star: currentValue,
     };
-    console.log(data);
     userVote(data);
-    toast.success("Voted success", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
   };
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -65,6 +61,7 @@ function DishVote() {
           );
         })}
       </div>
+      <ToastContainer />
       <ModalLogin handleClick={handleClick} />
     </div>
   );
