@@ -23,14 +23,14 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Bảng Công thức Món ăn (Lấy từ màn hình Tạo Thực đơn)
 CREATE TABLE IF NOT EXISTS `recipe` (
 	ID 				INT 			NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `name` 			VARCHAR(50) 	NOT NULL,
+    `name` 			VARCHAR(50) 	NOT NULL UNIQUE,
     `description` 	LONGTEXT 		NOT NULL,
     `image` 		LONGBLOB 		NOT NULL,
     `formula` 		LONGTEXT 		NOT NULL,
     `note`  		LONGTEXT 		NOT NULL,
     creator 		INT NOT NULL,
     `price` 		INT NOT NULL,
-		vote 		INT NOT NULL,
+	vote     		INT NOT NULL,
     views   		INT NOT NULL,
     FOREIGN KEY (creator) REFERENCES `user`(ID)
 );
@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS `raw_material` (
 
 -- Bảng chung giữa Thực đơn - Nguyên liệu
 CREATE TABLE IF NOT EXISTS recipe_raw_material (
-	ID 					INT NOT NULL,
+    id                  INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     recipe_id 			INT NOT NULL,
     raw_material_id 	INT NOT NULL,
-    amount 				INT NOT NULL,
+    amount 				FLOAT NOT NULL,
     PRIMARY KEY (recipe_id, raw_material_id),
     FOREIGN KEY (recipe_id) REFERENCES `recipe`(ID),
     FOREIGN KEY (raw_material_id)  REFERENCES `raw_material`(ID)
