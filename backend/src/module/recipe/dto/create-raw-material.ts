@@ -6,4 +6,4 @@ export class CreateRawMaterial {
 
   @ApiProperty()
   unit: string;
-}
+

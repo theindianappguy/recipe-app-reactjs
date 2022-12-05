@@ -17,6 +17,7 @@ export class RawMaterial {
 
   @Column()
   unit: string;
+
   @OneToMany(() => RecipeRawMaterial, (listRecipe) => listRecipe.rawmaterial)
   listRecipe: RecipeRawMaterial[];
 }
