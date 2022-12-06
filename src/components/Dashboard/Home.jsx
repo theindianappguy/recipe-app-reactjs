@@ -4,7 +4,7 @@ import Veggie from "../App/Veggie";
 
 function Home(props) {
     return (
-        <div>
+        <div className='home-page-container'>
             <Popular/>
             <Veggie/>
         </div>
