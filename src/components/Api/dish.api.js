@@ -1,4 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify";
+
 import {
   getDishError,
   getDishStart,
@@ -20,8 +22,12 @@ export const getDish = async (dishData, dispatch) => {
 export const userVote = async (data) => {
   try {
     const res = await axios.post("http://localhost:3000/voting", data);
-    console.log(res);
+    toast.success("Voting success!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   } catch (err) {
-    console.log(err);
+    toast.error("voting error!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 };
