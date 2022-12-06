@@ -9,7 +9,8 @@ function Search(props) {
 
   const getSearchedRecipes = async (search) => {
     const resp = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&query=${search}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&query=${search}`
+      // `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&ingredients=${search}`
     );
     const data = await resp.json();
 

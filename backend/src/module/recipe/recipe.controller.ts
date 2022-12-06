@@ -17,7 +17,7 @@ import { CreateRecipeRawDto } from './dto/recipe-raw-material.dto';
 @ApiTags('Recipe')
 @Controller('recipe')
 export class RecipeController {
-  constructor(private readonly recipeService: RecipeService) {}
+  constructor(private readonly recipeService: RecipeService) { }
   @Public()
   @Post()
   create(@Body() createRecipeDto: CreateRecipeDto) {
@@ -33,6 +33,8 @@ export class RecipeController {
   createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto) {
     return this.recipeService.createRecipeMaterial(createRecipeDto);
   }
+
+  // @Public()
   // @Get()
   // findAll() {
   //   return this.recipeService.findAll();

@@ -1,10 +1,15 @@
 .dish-option{
     display: flex;
     flex-direction: column; 
-    width: 100%;
-    border: solid 2px #222;
+    // width: 100%;
+    // border: solid 2px #222;
+    // width: 395px;
     button{
-        font-weight:500 ;
+
+        text-align: left;
+        height: 60px;
+        padding-left: 20px;
+        // font-weight:500 ;
         &:hover{
             background-color: #bbb;
             color: rgba(129, 73, 3, 1);

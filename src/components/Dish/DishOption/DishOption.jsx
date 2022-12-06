@@ -8,7 +8,7 @@ export default function DishOption({ setOption }) {
         Description
       </button>
       <button onClick={() => setOption(1)} className="dish-option-proccessing">
-        processing instructions
+        Processing instructions
       </button>
       <button onClick={() => setOption(2)} className="dish-option-storage">
         Storage instructions

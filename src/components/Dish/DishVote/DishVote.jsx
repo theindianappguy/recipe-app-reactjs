@@ -75,6 +75,9 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    height: "120px",
+    justifyContent: "space-between",
+    marginBottom: "50px"
   },
   stars: {
     display: "flex",
@@ -90,7 +93,7 @@ const styles = {
   },
   button: {
     border: "1px solid #a9a9a9",
-    borderRadius: 5,
+    borderRadius: 10,
     width: 300,
     padding: 10,
   },
