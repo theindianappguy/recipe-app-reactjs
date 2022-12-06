@@ -97,7 +97,7 @@ function Share(props) {
         <>
             {
                 user ? <>
-                    <form onSubmit={formikRecipe.handleSubmit}>
+                    <form onSubmit={formikRecipe.handleSubmit} className='form-container-input'>
                         <h2><span>Share</span> Your Recipes 🍔</h2>
                         <div className="share-container">
                             <div className="recipe-form-1">

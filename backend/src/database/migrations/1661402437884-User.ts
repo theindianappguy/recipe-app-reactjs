@@ -17,11 +17,11 @@ export class User1661402437884 implements MigrationInterface {
     await queryRunner.query(
       `CREATE TABLE IF NOT EXISTS recipe (
           id 						INT 					NOT NULL PRIMARY KEY AUTO_INCREMENT,
-          name 					VARCHAR(50) 	 NOT NULL UNIQUE,
-          description 	LONGTEXT NOT NULL,
-          image 				LONGBLOB 			NOT NULL,
-          formula 			LONGTEXT         NOT NULL,
-          note  				LONGTEXT       NOT NULL,
+          name 					VARCHAR(50) 	NOT NULL UNIQUE,
+          description 	LONGTEXT      NOT NULL,
+          image 				LONGTEXT 	    NOT NULL,
+          formula 			LONGTEXT      NOT NULL,
+          note  				LONGTEXT      NOT NULL,
           creator 		  INT NOT NULL,
           price 				INT NOT NULL,
           vote 					INT NOT NULL,
