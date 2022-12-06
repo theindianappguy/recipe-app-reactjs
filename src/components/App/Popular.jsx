@@ -15,11 +15,16 @@ function Popular(props) {
   const getPopular = async () => {
     const api = await fetch(
       `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY1}&number=9`
+      // `https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2`
     );
     const data = await api.json();
     setPopular(data.recipes);
     console.log(data.recipes);
   };
+
+  // const getPopular = () => {
+  //   const baseUrl = 'http://localhost:'
+  // };
 
   return (
     <div>

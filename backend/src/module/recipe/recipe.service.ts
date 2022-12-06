@@ -18,8 +18,8 @@ export class RecipeService {
     private readonly rawMaterialRepo: Repository<RawMaterial>,
     @InjectRepository(RecipeRawMaterial)
     private readonly recipeRawMaterialRepo: Repository<RecipeRawMaterial>,
-  ) {}
-  async create(createRecipeDto: CreateRecipeDto) {
+  ) { }
+  create(createRecipeDto: CreateRecipeDto) {
     // const recipeImg = await fetch(createRecipeDto.image);
     return this.recipeRepo.save(createRecipeDto);
   }
@@ -29,9 +29,11 @@ export class RecipeService {
   createRecipeMaterial(createRecipeRawDto: CreateRecipeRawDto) {
     return this.recipeRawMaterialRepo.save(createRecipeRawDto);
   }
-  search(name: string){
-    console.log('abc',name)
-    return this.recipeRepo.find({where:{ name: name }});
+  search(name: string) {
+    console.log('abc', name)
+    console.log('search by name');
+
+    return this.recipeRepo.find({ where: { name: name } });
   }
   async saveRecipe(id: number, userId: number) {
     const recipe = await this.recipeRepo.findOne({ where: { id: id } });

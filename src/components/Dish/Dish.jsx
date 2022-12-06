@@ -18,7 +18,7 @@ export default function Dish() {
   return (
     <div className="dish">
       <div className="dish-title">
-        <h1>{dishData?.data.title}</h1>
+        <h2>{dishData?.data.title}</h2>
       </div>
       <Container className="dish-container">
         <Row className="dish-container-row-1">

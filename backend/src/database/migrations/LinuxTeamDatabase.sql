@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `raw_material` (
 
 -- Bảng chung giữa Thực đơn - Nguyên liệu
 CREATE TABLE IF NOT EXISTS recipe_raw_material (
-    id                  INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id                  INT NOT NULL UNIQUE AUTO_INCREMENT,
     recipe_id 			INT NOT NULL,
     raw_material_id 	INT NOT NULL,
     amount 				FLOAT NOT NULL,

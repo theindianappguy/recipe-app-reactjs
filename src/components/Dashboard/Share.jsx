@@ -136,6 +136,17 @@ function Share(props) {
                                             onChange={formikRecipe.handleChange}
                                         />
                                     </div>
+
+                                    <div className="recipe-name-add">
+                                        <p className="recipe-name-add-item">Price </p>
+                                        <input type="number"
+                                            id="price"
+                                            name="price"
+                                            value={formikRecipe.values.price}
+                                            className="recipe-name-add-input"
+                                            onChange={formikRecipe.handleChange}
+                                        />
+                                    </div>
                                     <div className="ingredient-add">
                                         <p>Ingredient </p>
                                         {inputList.map((item, index) => (
