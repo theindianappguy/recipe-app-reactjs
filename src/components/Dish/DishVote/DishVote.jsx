@@ -23,7 +23,7 @@ function DishVote() {
   };
   const handleClick = () => {
     const data = {
-      recipe_id: 0,
+      recipe_id: Number(param.id),
       user_id: loginedUser.user.id,
       amount_star: currentValue,
     };
