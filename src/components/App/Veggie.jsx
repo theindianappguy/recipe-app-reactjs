@@ -16,12 +16,12 @@ const Veggie = () => {
       setVeggies(JSON.parse(getData));
     } else {
       const resp = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&tags=vegetarian&number=10`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&tags=vegetarian&number=10`
       );
       const data = await resp.json();
       setVeggies(data.recipes);
       localStorage.setItem("veggies", JSON.stringify(data.recipes));
-      console.log(data.recipes);
+      // console.log(data.recipes);
     }
   };
 

@@ -13,22 +13,30 @@ const colors = {
 };
 
 function DishVote() {
+
   const param = useParams();
-  const loginedUser = useSelector((state) => state.auth.login.currentUser);
+  const user = useSelector((state) => state.auth.login.currentUser);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
+
+
   const handleClickStar = (value) => {
     setCurrentValue(value);
   };
+
+
   const handleClick = () => {
     const data = {
       recipe_id: Number(param.id),
-      user_id: loginedUser.user.id,
+      user_id: user.id,
       amount_star: currentValue,
     };
+
     userVote(data);
   };
+
+  
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
   };

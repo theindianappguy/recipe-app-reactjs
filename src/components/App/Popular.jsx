@@ -2,29 +2,20 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getDish } from "../Api/dish.api";
+import { Link } from "react-router-dom";
 function Popular(props) {
   const [popular, setPopular] = useState([]);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
+
   useEffect(() => {
     getPopular();
   }, []);
+
   const getPopular = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY1}&number=9`
-      // `https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2`
-    );
+    const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&number=9`);
     const data = await api.json();
     setPopular(data.recipes);
-    console.log(data.recipes);
   };
-
-  // const getPopular = () => {
-  //   const baseUrl = 'http://localhost:'
-  // };
 
   return (
     <div>
@@ -40,9 +31,8 @@ function Popular(props) {
           }}
         >
           {popular?.map((recipe) => {
-            console.log(recipe);
             return (
-              <SplideSlide>
+              <SplideSlide key={recipe.id}>
                 <Link to={`dish/${recipe.id}`}>
                   <Card>
                     <p>{recipe.title}</p>

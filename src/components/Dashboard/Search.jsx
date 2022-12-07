@@ -8,10 +8,7 @@ function Search(props) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const getSearchedRecipes = async (search) => {
-    const resp = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&query=${search}`
-      // `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY4}&ingredients=${search}`
-    );
+    const resp = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_FOOD_API_KEY}&query=${search}`);
     const data = await resp.json();
 
     return data.results;
@@ -106,7 +103,7 @@ function Search(props) {
         <Grid>
           {searchedRecipes?.map(({ title, id, image }) => (
             <Card key={id}>
-              <Link to={`/recipe/${id}`}>
+              <Link to={`/dish/${id}`}>
                 <img src={image} alt={title} />
                 <h5>{title}</h5>
               </Link>

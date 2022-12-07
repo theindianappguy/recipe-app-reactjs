@@ -8,13 +8,19 @@ import DishOption from "./DishOption/DishOption";
 import DishVote from "./DishVote/DishVote";
 import Parser from "html-react-parser";
 export default function Dish() {
+  
   const dispatch = useDispatch();
   const dishData = useSelector((state) => state.dish.dataDish.data);
+  
   const param = useParams();
   const [option, setOption] = useState(1);
+
+
   useEffect(() => {
     getDish(param.id, dispatch);
   }, [param, dispatch]);
+  
+  
   return (
     <div className="dish">
       <div className="dish-title">
@@ -35,7 +41,7 @@ export default function Dish() {
           >
             <ul>
               {dishData?.data?.extendedIngredients?.map((s, index) => {
-                return <li>{`${index + 1}. ${s.original}`}</li>;
+                return <li key={index}>{`${index + 1}. ${s.original}`}</li>;
               })}
             </ul>
           </Col>
@@ -51,15 +57,15 @@ export default function Dish() {
             {option === 0 && dishData && Parser(dishData?.data.summary)}
             <ul>
               {option === 1 &&
-                dishData?.data?.analyzedInstructions[0]?.steps?.map((s) => {
-                  return <li>{`Step${s?.number}: ${s?.step}`}</li>;
+                dishData?.data?.analyzedInstructions[0]?.steps?.map((s, index) => {
+                  return <li key={index}>{`Step${s?.number}: ${s?.step}`}</li>;
                 })}
             </ul>
             {option === 2 && dishData && "Bao quan ban tu lanh"}
           </Col>
         </Row>
       </Container>
-      <DishVote />
+      <DishVote/>
     </div>
   );
 }

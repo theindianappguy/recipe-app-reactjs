@@ -15,15 +15,19 @@ export default function FormLoginModal({ hide }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
   useEffect(() => {
     setErrorMessage(currentUserError);
   }, [currentUserError, setErrorMessage]);
+
   const handleClass = (name, baseClass = "form-control") =>
     `${baseClass} ${errors[name] ? "is-invalid" : ""}`;
+
   const onSubmit = (data) => {
     loginUserModal(data, dispatch);
     hide();
   };
+
   return (
     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">

@@ -12,6 +12,7 @@ import Home from "../Dashboard/Home";
 import Dish from "../Dish/Dish";
 import ModalLogin from "../Dish/DishVote/ModalLogin";
 function App() {
+
   return (
     <Routes>
       <Route path="/" element={<Navbar />}>
