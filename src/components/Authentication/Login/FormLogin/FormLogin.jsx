@@ -78,6 +78,7 @@ export default function FormLogin() {
         />
         <ErrorMessageAuth name="password" errors={errors} />
       </div>
+      
       {errorMessage && (
         <div className="text-danger" style={{ fontSize: "small" }}>
           {errorMessage}
@@ -93,11 +94,18 @@ export default function FormLogin() {
         </button>
       </div>
       <p className="form-login-signup text-right">
-        Don't have account{" "}
+        Don't have account ?{" "}
         <Link to="/register" onClick={() => dispatch(clearRedux())}>
-          Sign up?
+          Sign up.
         </Link>
       </p>
+      <p className="form-login-signup text-right">
+        Forget your password ?{" "}
+        <Link to="/forget" onClick={() => dispatch(clearRedux())}>
+          Retake private Q&A.
+        </Link>
+      </p>
+
     </form>
   );
 }
