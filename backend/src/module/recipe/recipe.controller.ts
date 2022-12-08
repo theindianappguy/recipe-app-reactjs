@@ -22,7 +22,7 @@ export class RecipeController {
   }
   @Public()
   @Post('/recipematerial')
-  createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto) {
+  createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto[]) {
     return this.recipeService.createRecipeMaterial(createRecipeDto);
   }
   // @Get()
@@ -47,7 +47,7 @@ export class RecipeController {
   @Public()
   @Get('recipe/:id')
   filter(@Param('id') id: number) {
-    return this.recipeService.filter(+id)
+    return this.recipeService.filter(+id);
   }
 
   // @Patch(':id')

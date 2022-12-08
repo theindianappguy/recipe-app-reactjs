@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { In, Repository } from 'typeorm';
+import { In, QueryBuilder, Repository } from 'typeorm';
 import { CreateRawMaterial } from './dto/create-raw-material';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { CreateRecipeRawDto } from './dto/recipe-raw-material.dto';
@@ -26,7 +26,7 @@ export class RecipeService {
   createRawMaterial(createRawMaterial: CreateRawMaterial) {
     return this.rawMaterialRepo.save(createRawMaterial);
   }
-  createRecipeMaterial(createRecipeRawDto: CreateRecipeRawDto) {
+  createRecipeMaterial(createRecipeRawDto: CreateRecipeRawDto[]) {
     return this.recipeRawMaterialRepo.save(createRecipeRawDto);
   }
   search(name: string){
@@ -59,12 +59,20 @@ export class RecipeService {
       },
     });
   }
-findOne(id: number) {
-    return  this.recipeRepo.findOne({
+async findOne(id: number) {
+    const recipe=await  this.recipeRepo.findOne({
       where: {
         id: id,
       },
     });
+  const queryBuilder = this.recipeRawMaterialRepo.createQueryBuilder('recipe_raw_material');
+  queryBuilder.leftJoinAndSelect(`recipe_raw_material.rawmaterial`, `raw_material`);
+  queryBuilder.where(`recipe_raw_material.recipe_id = :id`, { id:recipe.id  });
+  const material=await queryBuilder.getRawMany();
+  console.log('a',queryBuilder.getQuery())
+  console.log('ahihi',material)
+  return [recipe,material];
+
   }
 
   update(id: number, updateRecipeDto: UpdateRecipeDto) {
