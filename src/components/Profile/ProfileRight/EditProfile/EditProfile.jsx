@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import "./editProfile.scss";
 export default function EditProfile() {
   const user = useSelector((state) => state.auth.login.currentUser);
-  const [userName, setUserName] = useState(user?.user.username);
-  const [userPhone, setUserPhone] = useState(user?.user.phone);
-  const [gender, setGender] = useState(user?.user.gender);
+  const [userName, setUserName] = useState(user?.username);
+  const [userPhone, setUserPhone] = useState(user?.phone);
+  const [gender, setGender] = useState(user?.gender);
   return (
     <Form className="profile-right-edit-profile">
       <Form.Group className="mb-3 profile-right-edit-profile-name">

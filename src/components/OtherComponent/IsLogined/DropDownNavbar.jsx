@@ -11,7 +11,9 @@ const DropDownNavbar = ({ userInfo }) => {
   // const userInfo = JSON.parse(localStorage.getItem('access_token'));
 
   console.log("Dropdown Navbar Props: ", userInfo);
-
+  const handleCLickProfile = () => {
+    navigate("/profile");
+  };
   return (
     <Dropdown className="navbar-dropdown">
       <Dropdown.Toggle
@@ -39,7 +41,7 @@ const DropDownNavbar = ({ userInfo }) => {
         </Dropdown.Item>
         <Dropdown.Item
           style={({ width: "250px" }, { marginLeft: "0" })}
-          href="#/action-2"
+          onClick={handleCLickProfile}
         >
           Profile
         </Dropdown.Item>
