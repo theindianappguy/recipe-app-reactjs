@@ -26,6 +26,8 @@ body{
     text-align: center;
 }
 
+
+
 .navbar-container{
     /*position: fixed;*/
     width: 100%;
@@ -191,4 +193,13 @@ body{
     .navbar.open{
         right: 2%;
     }
+}
+
+.home-page-container{
+    width: 80%;
+}
+
+.search-container {
+    width: 80%;
+    align-items: center;
 }

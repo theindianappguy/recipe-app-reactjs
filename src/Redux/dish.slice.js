@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const dishslice = createSlice({
+const dishSlice = createSlice({
   name: "dish",
   initialState: {
     dataDish: {
@@ -29,5 +29,5 @@ const dishslice = createSlice({
     },
   },
 });
-export const { getDishError, getDishStart, getDishSuccess } = dishslice.actions;
-export default dishslice.reducer;
+export const { getDishError, getDishStart, getDishSuccess } = dishSlice.actions;
+export default dishSlice.reducer;

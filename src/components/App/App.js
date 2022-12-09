@@ -8,9 +8,11 @@ import Profile from "../Dashboard/Profile";
 import React from "react";
 import Login from "../Authentication/Login/Index";
 import Register from "../Authentication/Register/Index";
+import FormForget from "../Authentication/ForgetPassword/Index";
 import Home from "../Dashboard/Home";
 import Dish from "../Dish/Dish";
 function App() {
+
   return (
     <Routes>
       <Route path="/" element={<Navbar />}>
@@ -20,6 +22,7 @@ function App() {
         <Route path="share" element={<Share />} />
         <Route path="profile" element={<Profile />} />
         <Route path="register" element={<Register />} />
+        <Route path="forget" element={<FormForget />} />
         <Route path="login" element={<Login />} />
         <Route path="recipe/:id" element={<Dish />} />
         <Route path="/profile" element={<Profile />} />

@@ -3,10 +3,15 @@ import { Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../../Api/auth.api";
-const DropDownNavbar = () => {
+
+const DropDownNavbar = ({ userInfo }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userInfo = useSelector((state) => state.auth.login.currentUser.user);
+  // const userInfo = useSelector((state) => state.auth.login.currentUser);
+  // const userInfo = JSON.parse(localStorage.getItem('access_token'));
+
+  console.log("Dropdown Navbar Props: ", userInfo);
+
   return (
     <Dropdown className="navbar-dropdown">
       <Dropdown.Toggle
@@ -18,11 +23,11 @@ const DropDownNavbar = () => {
           className="navbar-dropdown-toggle-avatar"
           src={
             "https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png" ||
-            userInfo.avatar
+            userInfo?.avatar
           }
-          alt="photo"
+          alt=""
         />
-        {userInfo.username}
+        {userInfo?.username}
       </Dropdown.Toggle>
 
       <Dropdown.Menu style={{ width: "250px" }}>
@@ -34,9 +39,7 @@ const DropDownNavbar = () => {
         </Dropdown.Item>
         <Dropdown.Item
           style={({ width: "250px" }, { marginLeft: "0" })}
-          onClick={() => {
-            navigate("/profile");
-          }}
+          href="#/action-2"
         >
           Profile
         </Dropdown.Item>

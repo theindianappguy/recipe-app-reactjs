@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
 	ID 				INT 			NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `name` 			VARCHAR(50) 	NOT NULL UNIQUE,
     `description` 	LONGTEXT 		NOT NULL,
-    `image` 		LONGBLOB 		NOT NULL,
+    `image` 		LONGTEXT    	NOT NULL,
     `formula` 		LONGTEXT 		NOT NULL,
     `note`  		LONGTEXT 		NOT NULL,
     creator 		INT NOT NULL,

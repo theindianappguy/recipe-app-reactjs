@@ -3,7 +3,7 @@ const authSlice = createSlice({
     name: "auth",
     initialState: {
         login: {
-            currentUser: null,
+            currentUser: JSON.parse(localStorage.getItem('currentUserLoggedIn')),
             isFetching: false,
             isError: false,
             currentUserError: null,
@@ -13,7 +13,7 @@ const authSlice = createSlice({
             isError: false,
             isSuccess: false,
             registerMessageError: null,
-        },
+        }
     },
     reducers: {
         loginStart: (state) => {

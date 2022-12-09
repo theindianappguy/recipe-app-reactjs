@@ -4,7 +4,6 @@ import { useState } from "react";
 import ErrorMessageAuth from "../../ErrorMessage/ErrorMessageAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../../Api/auth.api";
 import { clearRedux } from "../../../../Redux/auth.slice";
 
 export default function FormRegister() {
@@ -16,53 +15,30 @@ export default function FormRegister() {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const [username, setUsername] = useState("");
+
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [question, setQuestion] = useState("");
+    const [answer, setAnswer] = useState("");
+
     const handleClass = (name, baseClass = "form-control") => `${baseClass} ${errors[name] ? "is-invalid" : ""}`;
     const onSubmit = (data) => {
         // console.log(data)
-        registerUser(data, dispatch, navigate);
-    };
+        // TODO: process this with some API
+        // 1. Check the correct question
+        // 2. Check the correct answer
+        // If the logic is true, then display an alert (showing the old password)
 
-    const [question, set_Question] = useState("");
-    const [answer, setAnswer] = useState("");
+    };
 
     const mockup_questions = [{"id": 1, "content": "How many people are there in your family ?"},
                                 {"id": 2, "content": "Where did you lived when you were 6 years old ?"},
                                 {"id": 3, "content": "What is your primary school's name ?"},]
     
-    // TODO: FE - done, BE - none
+    // FE - done, BE - None
     
     return (
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
-            <h3>Sign Up</h3>
-            <div className="mb-3">
-                <label>User Name</label>
-                <input
-                    name="username"
-                    {...register("username", {
-                        required: { value: true, message: "You must enter your username" },
-                        maxLength: {
-                            value: 20,
-                            message: "Username must be less than 20 characters",
-                        },
-                        minLength: {
-                            value: 4,
-                            message: "Username must be longer than 4 characters",
-                        },
-                    })}
-                    type="text"
-                    value={username}
-                    onChange={(e) => {
-                        setUsername(e.target.value);
-                    }}
-                    className={handleClass("username")}
-                    placeholder="User Name"
-                />
-                <ErrorMessageAuth name="name" errors={errors} />
-            </div>
-
+            <h3>Retake the private Q&A</h3>
             <div className="mb-3">
                 <label>Email address</label>
                 <input
@@ -85,31 +61,6 @@ export default function FormRegister() {
                     placeholder="Enter email"
                 />
                 <ErrorMessageAuth name="email" errors={errors} />
-            </div>
-
-            <div className="mb-3">
-                <label>Password</label>
-                <input
-                    {...register("password", {
-                        required: { value: true, message: "You must enter password" },
-                        minLength: {
-                            value: 6,
-                            message: "Password must longer 6 character",
-                        },
-                        maxLength: {
-                            value: 99,
-                            message: "Password must shorter 99 character",
-                        },
-                    })}
-                    type="password"
-                    value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                    className={handleClass("password")}
-                    placeholder="Enter password"
-                />
-                <ErrorMessageAuth name="password" errors={errors} />
             </div>
 
             <div className="mb-3">
@@ -154,15 +105,9 @@ export default function FormRegister() {
             )}
             <div className="d-grid">
                 <button type="submit" className="btn btn-primary">
-                    Sign Up
+                    Submit
                 </button>
             </div>
-            <p className="forgot-password text-right">
-                Already registered{" "}
-                <Link onClick={() => dispatch(clearRedux())} to="/login">
-                    sign in?
-                </Link>
-            </p>
         </form>
     );
 }
