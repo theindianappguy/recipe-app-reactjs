@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 	ID 				INT 			NOT NULL 	PRIMARY KEY AUTO_INCREMENT, 
     email 			VARCHAR(50) 	NOT NULL 	UNIQUE,
     username 		VARCHAR(50) 	NOT NULL, 
-    `password`		VARCHAR(30) 	NOT NULL,
+    `password`		VARCHAR(100) 	NOT NULL,
 	avatar			LONGBLOB 		NULL, -- không bắt buộc
     phone 			VARCHAR(20) 	NULL, -- -- không bắt buộc
     birth_date 		DATE 			NULL, -- không bắt buộc

@@ -43,7 +43,7 @@ function Popular(props) {
             console.log(recipe);
             return (
               <SplideSlide>
-                <Link to={`dish/${recipe.id}`}>
+                <Link to={`recipe/${recipe.id}`}>
                   <Card>
                     <p>{recipe.title}</p>
                     <img src={recipe.image} alt={recipe.title} />
