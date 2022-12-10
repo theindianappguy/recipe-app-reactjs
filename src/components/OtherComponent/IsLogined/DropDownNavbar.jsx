@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../../Api/auth.api";
 
-const DropDownNavbar = ({userInfo}) => {
+const DropDownNavbar = ({ userInfo, setShow, show }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     // const userInfo = useSelector((state) => state.auth.login.currentUser);
@@ -40,6 +40,7 @@ const DropDownNavbar = ({userInfo}) => {
                 <Dropdown.Item
                     style={({ width: "250px" }, { marginLeft: "0" })}
                     href="#/action-2"
+                    onClick={() => setShow(true)}
                 >
                     Profile
                 </Dropdown.Item>

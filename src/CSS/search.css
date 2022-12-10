@@ -2,32 +2,42 @@ label {
     /*font-family: sans-serif;*/
     font-size: 1rem;
     padding-right: 10px;
+    margin-top: 20px;
 }
 
 select {
     font-size: 0.9rem;
     padding: 2px 5px;
     border: none;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.123);
+    outline: none;
 }
 
 select option {
     cursor: pointer;
 }
 
-.form-select{
+input[type='text'] {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.123);
+    outline: none;
+}
+
+.form-select {
     margin-top: 50px;
-    margin-left: 160px;
+    margin-left: 120px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-.form-select .orderBy{
+.form-select .orderBy {
     margin-right: 100px;
     cursor: pointer;
 }
 
-.form-select .price{
+.form-select .price {
     cursor: pointer;
     margin-right: 100px;
 }
@@ -40,13 +50,11 @@ select option {
 
 .form-check {
     background: white;
-    height: 170px;
-    margin-top: 15px;
-    margin-left: 100px;
-    margin-right: 50px;
+    height: 230px;
+    margin: 35px 30px 50px 50px;
     box-sizing: border-box;
-    /*max-width: 90%;*/
-    /*width: 1000px;*/
+    /* max-width: 90%; */
+    /* width: 1000px; */
     min-width: 50%;
     text-align: left;
     padding: 20px;
@@ -87,12 +95,12 @@ select option {
 }
 
 /* On mouse-over, add a grey background color */
-.container-checkbox:hover input ~ .checkmark {
+.container-checkbox:hover input~.checkmark {
     background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container-checkbox input:checked ~ .checkmark {
+.container-checkbox input:checked~.checkmark {
     background-color: #2196F3;
 }
 
@@ -104,7 +112,7 @@ select option {
 }
 
 /* Show the checkmark when checked */
-.container-checkbox input:checked ~ .checkmark:after {
+.container-checkbox input:checked~.checkmark:after {
     display: block;
 }
 
@@ -121,22 +129,34 @@ select option {
     transform: rotate(45deg);
 }
 
-.form-check .more {
-    text-decoration: underline;
+.form-check .more-icon {
     cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: rgb(230, 226, 226);
 }
 
-.form-check .more:hover {
-    color: #fd6929;
+.form-check .more-icon:hover {
+    color: #ffffff;
+    background: #959DA5;
+    transition: all 0.4s ease;
 }
 
-.form-check .more:active {
-    color: #ec875b;
+.form-check .more-icon:active {
+    color: #928680;
+}
+
+.form-check .more-icon {
+    margin-top: 15px;
 }
 
 /*======================================================btn-search=============================================================*/
 
-.btn-search{
+.btn-search {
     margin-top: 15px;
     margin-left: 190px;
     margin-right: 190px;
@@ -152,32 +172,32 @@ select option {
     width: 150px;
 }
 
-                                                     /* CSS */
- .button-4 {
-     appearance: none;
-     background-color: #FAFBFC;
-     border: 1px solid rgba(27, 31, 35, 0.15);
-     border-radius: 6px;
-     box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
-     box-sizing: border-box;
-     color: #24292E;
-     cursor: pointer;
-     display: inline-block;
-     font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-     font-size: 14px;
-     font-weight: 500;
-     line-height: 20px;
-     list-style: none;
-     padding: 6px 16px;
-     position: relative;
-     transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-     user-select: none;
-     -webkit-user-select: none;
-     touch-action: manipulation;
-     vertical-align: middle;
-     white-space: nowrap;
-     word-wrap: break-word;
- }
+/* CSS */
+.button-4 {
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
 
 .button-4:hover {
     background-color: #F3F4F6;
@@ -211,8 +231,26 @@ select option {
 }
 
 
-.recipes-card{
+.recipes-card {
     width: 90%;
     margin-left: 100px;
     margin-top: 100px;
+}
+
+
+@media screen and (max-width: 1170px) {
+    .form-select {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: left;
+        margin: 30px;
+        padding-left: 20px;
+    }
+
+    .form-select input,
+    select {
+        width: 100%;
+    }
+
 }

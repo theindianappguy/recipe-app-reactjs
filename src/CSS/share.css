@@ -3,13 +3,13 @@ input {
     border: 1px solid #b9c3c7;
 }
 
-.share-container{
+.share-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: #eae2e2;
-    width: 100%;
+    background: #3533bb86;
+    width: 85%;
     /* margin-left: 80px; */
     border-radius: 10px;
     margin-bottom: 50px;
@@ -23,21 +23,36 @@ input {
     width: 90%;
 }
 
-h2{
+.share-container input[type='text'] {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.123);
+}
+
+.share-container input[type='number'] {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.123);
+}
+
+.form-container-input h2 {
     margin-top: 50px;
     margin-bottom: 20px;
 }
 
-h2 span{
+.form-container-input span {
     color: #FD6929;
 }
 
-.recipe-form-1{
+.recipe-form-1 {
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    width: 72%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .recipe-form-1 .add-image {
@@ -47,23 +62,23 @@ h2 span{
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 400px;
-    height: 400px;
+    width: 310px;
+    height: 310px;
     border-radius: 10px;
 }
 
-input[type="file"]{
+input[type="file"] {
     display: none;
 }
 
-.add-image label{
+.add-image label {
     color: white;
     height: 100px;
     width: 200px;
     background-color: #a49f95;
     justify-content: center;
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     align-items: center;
     border-radius: 10px;
     cursor: pointer;
@@ -83,7 +98,7 @@ input[type="file"]{
     /*border-radius: 10px;*/
 }
 
-.add-text .recipe-name-add{
+.add-text .recipe-name-add {
     /* margin-top: 20px; */
     margin-bottom: 10px;
     display: flex;
@@ -116,7 +131,7 @@ input[type="file"]{
     height: 25px;
 }
 
-.ingredient-add{
+.ingredient-add {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -139,7 +154,7 @@ input[type="file"]{
     text-align: left;
 }
 
-.ingredient-add .ingredient-add-item-name{
+.ingredient-add .ingredient-add-item-name {
     /*margin-right: 25px;*/
     margin-right: 15px;
 }
@@ -161,11 +176,11 @@ input[type="file"]{
 }
 
 
-.delete-item-ingredient-add-item:hover{
+.delete-item-ingredient-add-item:hover {
     color: #fd6929;
 }
 
-.delete-item-ingredient-add-item:active{
+.delete-item-ingredient-add-item:active {
     color: #ae7b67;
 }
 
@@ -175,7 +190,7 @@ input[type="file"]{
     /*height: 25px;*/
     text-align: center;
     /* border-radius: 10px; */
-    color: rgba(86, 118, 39, 0.5);
+    color: rgba(191, 232, 129, 0.889);
     /* background-color: greenyellow; */
     /* border: 0.5px solid; */
     border: none;
@@ -189,7 +204,7 @@ input[type="file"]{
     /*height: 25px;*/
     text-align: center;
     /* border-radius: 10px; */
-    color: rgba(118, 162, 55, 0.5);
+    color: rgba(85, 118, 39, 0.5);
 }
 
 .ingredient-add .btn-add-ingredient:active {
@@ -230,9 +245,11 @@ input[type="file"]{
     font-size: 22px;
     background: rgba(0, 0, 0, 0);
     transition: padding-top 0.2s ease, margin-top 0.2s ease;
-    overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+    overflow-x: hidden;
+    /* Hack to make "rows" attribute apply in Firefox. */
     width: 80%;
     font-weight: 300;
+    outline: none;
 }
 
 .share-container .button-27 {
@@ -244,31 +261,31 @@ input[type="file"]{
 
 
 .button-27 {
-   appearance: none;
-   background-color: #000000;
-   border: 2px solid #1A1A1A;
-   border-radius: 15px;
-   box-sizing: border-box;
-   color: #FFFFFF;
-   cursor: pointer;
-   display: inline-block;
-   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-   font-size: 16px;
-   font-weight: 600;
-   line-height: normal;
-   margin: 0;
-   min-height: 60px;
-   min-width: 0;
-   outline: none;
-   padding: 16px 24px;
-   text-align: center;
-   text-decoration: none;
-   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-   user-select: none;
-   -webkit-user-select: none;
-   touch-action: manipulation;
-   width: 100%;
-   will-change: transform;
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
 }
 
 .button-27:disabled {
@@ -285,15 +302,30 @@ input[type="file"]{
     transform: translateY(0);
 }
 
-@media (max-width: 1030px) {
-    .recipe-form-1{
+@media (max-width: 1170px) {
+
+    .share-container {
+        width: 85%;
+        min-width: 790px;
+        box-sizing: border-box;
+    }
+
+    .recipe-form-1 {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 
-    .add-image {
-        margin-bottom: 30px;
+    .recipe-form-1 .add-image {
+        margin-bottom: 50px;
+        margin-right: 0;
+        width: 100%;
+        height: 450px;
+    }
+
+    .add-text {
+        width: 100%;
     }
 }
 
@@ -301,7 +333,101 @@ input[type="file"]{
     margin-top: 50px;
 }
 
-.login-after-share p{
+.login-after-share p {
     margin-top: 20px;
     font-size: 25px;
+}
+
+
+@media (max-width: 1020px) {
+
+    .div-input-text-add {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .other-input {
+        width: 72%;
+    }
+}
+
+
+
+.other-input {
+    width: 72%;
+}
+
+
+input:focus~label,
+textarea:focus~label,
+input:valid~label,
+textarea:valid~label {
+    font-size: 0.75em;
+    color: #8e44ad;
+    top: -2.25rem;
+    -webkit-transition: all 0.125s ease;
+    transition: all 0.125s ease;
+}
+
+.styled-input {
+    float: left;
+    width: 33.3333%;
+    margin: 2rem 0 1rem;
+    position: relative;
+}
+
+.styled-input label {
+    color: #999;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.styled-input.wide {
+    width: 100%;
+}
+
+.other-input input,
+textarea {
+    padding: 1rem 1rem;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.other-input input~span,
+textarea~span {
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #8e44ad;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: all 0.125s ease;
+    transition: all 0.125s ease;
+}
+
+.other-input input:focus,
+textarea:focus {
+    outline: 0;
+}
+
+.other-input input:focus~span,
+textarea:focus~span {
+    width: 100%;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+}
+
+.other-input textarea {
+    width: 100%;
+    min-height: 7em;
+    border-radius: 10px;
 }

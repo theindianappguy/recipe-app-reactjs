@@ -1,0 +1,226 @@
+.profile {
+    background: #fff;
+    border-radius: 60px;
+}
+
+.profile::before {
+    position: absolute;
+    content: "";
+    background: #fa986e;
+    height: 23%;
+    width: 100%;
+    border-radius: 60px 60px 0 0;
+}
+
+.profile-content {
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background: #fff; */
+    position: relative;
+    /* background: #fa986e; */
+    border-radius: 15px;
+}
+
+.profile-content .image {
+    height: 140px;
+    width: 140px;
+    padding: 3px;
+    margin-top: 40px;
+    background: #fa986e;
+    border-radius: 50%;
+}
+
+.profile-content p {
+    margin: 0;
+}
+
+.profile-content .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    /* padding: 20px; */
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 60px;
+    /* background: #fa986e; */
+    /* Could be more or less, depending on screen size */
+}
+
+.profile-content .media-icons {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70px;
+    justify-content: space-between;
+}
+
+.profile-content .media-icons .icon {
+    color: #fff;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.profile-content .media-icons .icon:hover {
+    opacity: 1;
+    color: #ffffff;
+}
+
+/* form.profile-content .name-profession {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+form.profile-content .name-profession {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    color: #333;
+} */
+
+
+.profile-content .button button {
+    background: #fa986e;
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+.profile-content .button {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.profile-content .button button:hover {
+    background: #FD6929;
+}
+
+.profile-content .button button:active {
+    background: #efcbbc;
+    color: rgb(236, 113, 46);
+}
+
+.profile-content .button #cancel {
+    background: rgb(128, 128, 245);
+}
+
+.profile-content .button #cancel:hover {
+    background: rgb(80, 80, 240);
+}
+
+.profile-content .button #cancel:active {
+    background: rgb(26, 26, 244);
+    color: rgb(246, 248, 247);
+}
+
+.profile-content .content .details {
+    text-align: left;
+    width: 250px;
+    height: 250px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content .details h2 {
+    margin-top: 25px;
+    font-size: 1.7em;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    cursor: pointer;
+}
+
+.content .details h2:hover {
+    color: rgb(160, 155, 155);
+}
+
+.content .details span {
+    margin-top: 20px;
+    font-size: 0.8em;
+    font-weight: 500;
+    opacity: 0.6;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.content .details .gender .gender-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .details .gender .gender-item input {
+    margin-right: 10px;
+}
+
+.content .details .gender div {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 145px;
+    margin-right: 20px;
+}
+
+.phone input[type='text'] {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.18);
+}
+
+.email input[type='email'] {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.18);
+}
+
+button.MuiButtonBase-root.MuiIconButton-root {
+    margin-bottom: 20px;
+    padding: 0;
+    height: 0;
+}
+
+.birth_date .MuiFormControl-root.MuiTextField-root {
+    width: 170px;
+}
+
+.birth_date svg.MuiSvgIcon-root:hover {
+    color: #FA986E;
+}
+
+.birth_date .MuiInputLabel-formControl {
+    top: -20px;
+}
+
+.birth_date .MuiInputBase-input {
+    min-width: 160px;
+}
