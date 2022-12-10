@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { RecipeService } from './recipe.service';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
 import { UpdateRecipeDto } from './dto/update-recipe.dto';
@@ -9,7 +17,7 @@ import { CreateRecipeRawDto } from './dto/recipe-raw-material.dto';
 @ApiTags('Recipe')
 @Controller('recipe')
 export class RecipeController {
-  constructor(private readonly recipeService: RecipeService) {}
+  constructor(private readonly recipeService: RecipeService) { }
   @Public()
   @Post()
   create(@Body() createRecipeDto: CreateRecipeDto) {
@@ -25,6 +33,8 @@ export class RecipeController {
   createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto[]) {
     return this.recipeService.createRecipeMaterial(createRecipeDto);
   }
+
+  // @Public()
   // @Get()
   // findAll() {
   //   return this.recipeService.findAll();
@@ -41,8 +51,8 @@ export class RecipeController {
   }
   @Public()
   @Post('/save/:id/:userId')
-  saveRecipe(@Param('id') id: number,@Param('userId') userId: number) {
-    return this.recipeService.saveRecipe(id,userId);
+  saveRecipe(@Param('id') id: number, @Param('userId') userId: number) {
+    return this.recipeService.saveRecipe(id, userId);
   }
   @Public()
   @Get('recipe/:id')

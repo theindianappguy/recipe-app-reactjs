@@ -1,0 +1,29 @@
+.login{
+    background: rgb(230, 240, 245);
+    min-height: 80vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 400;
+    font-family: "Fira Sans", sans-serif;
+    &-image{
+        width: 40vw;
+        height: 75vh;
+        box-shadow: 5px 10px 8px #888888;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &-wrapper{
+        text-align: left;
+        min-width: 350px;
+        margin-left: -25%;
+        background-color: aliceblue;
+        padding: 50px;
+        border-radius:15px ;
+        width: 25%;
+        box-shadow:5px 10px 8px #888888;
+    }
+}

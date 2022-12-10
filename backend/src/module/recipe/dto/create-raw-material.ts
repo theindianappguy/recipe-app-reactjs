@@ -1,9 +1,9 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateRawMaterial {
-    @ApiProperty()
-    name: string;
-  
-    @ApiProperty()
-    unit: string;
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  unit: string;
 }
