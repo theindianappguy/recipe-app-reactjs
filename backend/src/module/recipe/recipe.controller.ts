@@ -30,7 +30,7 @@ export class RecipeController {
   }
   @Public()
   @Post('/recipematerial')
-  createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto) {
+  createRecipeMaterial(@Body() createRecipeDto: CreateRecipeRawDto[]) {
     return this.recipeService.createRecipeMaterial(createRecipeDto);
   }
 
