@@ -8,7 +8,7 @@ input {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: #3533bb86;
+    background: #b7b5ff86;
     width: 85%;
     /* margin-left: 80px; */
     border-radius: 10px;
@@ -56,7 +56,7 @@ input {
 }
 
 .recipe-form-1 .add-image {
-    background: #dccaca;
+    background: #F1EDED;
     margin-right: 60px;
     display: flex;
     align-items: center;
@@ -159,6 +159,10 @@ input[type="file"] {
     margin-right: 15px;
 }
 
+.ingredient-add .ingredient-add-item-name .css-b62m3t-container {
+    width: 220px;
+}
+
 .ingredient-add .ingredient-add-item input {
     width: 217px;
 }
@@ -170,8 +174,8 @@ input[type="file"] {
 
 .delete-item-ingredient-add-item {
     position: absolute;
-    right: -25px;
-    top: 35px;
+    right: -35px;
+    top: 55px;
     cursor: pointer;
 }
 
@@ -185,17 +189,9 @@ input[type="file"] {
 }
 
 .ingredient-add .btn-add-ingredient {
-    /*size: 30px;*/
-    /*width: 30px;*/
-    /*height: 25px;*/
-    text-align: center;
-    /* border-radius: 10px; */
-    color: rgba(191, 232, 129, 0.889);
-    /* background-color: greenyellow; */
-    /* border: 0.5px solid; */
+    color: rgba(79, 114, 30, 0.89);
     border: none;
     cursor: pointer;
-    /*margin-left: 10px;*/
     margin-top: 10px;
 }
 
@@ -212,7 +208,7 @@ input[type="file"] {
     /*height: 25px;*/
     text-align: center;
     /* border-radius: 10px; */
-    color: rgba(162, 223, 75, 0.5);
+    color: rgba(194, 229, 145, 0.5);
 }
 
 .div-input-text-add {

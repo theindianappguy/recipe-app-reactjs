@@ -16,14 +16,19 @@ export class User {
 
   @Column()
   avatar: string;
-  
-  @Column()
-  gender:number;
 
   @Column()
-  birth_date:Date;
+  gender: string;
 
   @Column()
-  phone:number;
+  birth_date: Date;
 
+  @Column()
+  phone: string;
+
+  @Column()
+  qid: number;
+
+  @Column()
+  answer: string;
 }

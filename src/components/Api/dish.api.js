@@ -31,3 +31,10 @@ export const userVote = async (data) => {
     });
   }
 };
+export const userVoted = async (data) => {
+  try {
+    return await axios.get(`http://localhost:3000/voting/${data}`);
+  } catch (err) {
+    console.log(err);
+  }
+};

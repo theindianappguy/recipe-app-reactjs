@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function Popular(props) {
   const [popular, setPopular] = useState([]);
 
-
   useEffect(() => {
     getPopular();
   }, []);

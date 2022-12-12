@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import '../../CSS/search.css';
-import { useParams, Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 function Search(props) {
-    // const [query, setQuery] = useState("");
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -34,25 +33,29 @@ function Search(props) {
         });
     });
 
-    const mockup_ingredents = [{id: 1, name: "Rice"}, 
-    {id: 2, name: "Chicken"}, {id: 3, name: "Spice"}, {id: 4, name: "Orange"}, {id: 5, name: "Cucumber"}, {id: 6, name: "Leaf"}, 
-    {id: 7, name: "Juice"}, {id: 8, name: "Beef"}, {id: 9, name: "Wine"}]
+    const mockup_ingredents = [
+        {id: 1, name: "Rice"}, {id: 2, name: "Chicken"}, {id: 3, name: "Spice"},
+        {id: 4, name: "Orange"}, {id: 5, name: "Cucumber"}, {id: 6, name: "Leaf"},
+        {id: 7, name: "Juice"}, {id: 8, name: "Beef"}, {id: 9, name: "Wine"}
+    ]
 
     const convertMatrix = (one_dimensional_array, n) => {
         let result = [];
-        while (one_dimensional_array.length) result.push(one_dimensional_array.splice(0, n));
+        while (one_dimensional_array.length) {
+            result = [...one_dimensional_array.splice(0, n)]
+        }
         return result;
     }
 
 
-    const mockup_converteds = convertMatrix(mockup_ingredents, 5)
-    const show_up_ingredents = mockup_converteds.slice(0, 2)
-    const hiddent_ingredents = mockup_converteds.slice(0, 9)
+    const mockup_converted = convertMatrix(mockup_ingredents, 9);
+    const show_up_ingredents = mockup_converted.slice(0, 2);
+    const hidden_ingredents = mockup_converted.slice(0, 9);
 
-    const [moreClicked, setMore] = useState(false) 
+    const [moreClicked, setMore] = useState(false)
     const [checkedList, setCheckedList] = useState({});
 
-    const handlecheck = (isCheck, id) => {
+    const handleCheck = (isCheck, id) => {
         const checkedListClone = {...checkedList}
         checkedListClone[id] = isCheck
         setCheckedList(checkedListClone)
@@ -60,7 +63,6 @@ function Search(props) {
         const filter_item_ids = Object.keys(checkedListClone).filter(key => checkedListClone[key] === true)
         // console.log(filter_item_ids);
         // Receive and setSearchedRecipes here
-        
     }
 
     return (
@@ -83,30 +85,31 @@ function Search(props) {
                 </select>
                 <label htmlFor="pet-select">Search:</label>
                 {/* <FaSearch /> */}
-                <input type="text" placeholder="Search.." className="search" onChange={(e) => handleChangeSearch(e)} />
+                <input type="text" placeholder="Search.." className="search" onChange={(e) => handleChangeSearch(e)}/>
             </div>
             <div className="form-check">
                 <p>Ingredient</p>
-                <div>
-                {
-                    (moreClicked? hiddent_ingredents : show_up_ingredents)?.map(item => (
-                        <div key={item.id}>
-                            {item?.map((ingredent) => (
-
-                                <label key={ingredent.id} className="container-checkbox">{ingredent.name}
-                                    <input type="checkbox" onChange={(event) => handlecheck(event.currentTarget.checked, ingredent.id)} />
+                <div className="check-list-item">
+                    {
+                        (moreClicked ? hidden_ingredents : show_up_ingredents)?.map(item => (
+                            <div key={item.id} className="check-item">
+                                {/*{item?.map((ingredient) => (*/}
+                                <label key={item.id} className="container-checkbox">
+                                    <span>{item.name}</span>
+                                    <input type="checkbox"
+                                           onChange={(event) => handleCheck(event.currentTarget.checked, item.id)}/>
                                     <span className="checkmark"></span>
                                 </label>
-                            ))}
-                        </div>
-                    ))
-                }
-
-                {
-                    moreClicked? <></> : <span className="more" onClick={() => setMore(true)}>More...</span>
-                }
-                    
+                            </div>
+                        ))
+                    }
                 </div>
+                {
+                    moreClicked ?
+                        <span className="more" onClick={() => setMore(false)}>Hidden...</span>
+                        :
+                        <span className="more" onClick={() => setMore(true)}>More...</span>
+                }
             </div>
             <div className="btn-search">
                 <button className="button-4" onClick={onClickToSearch}>Search</button>
@@ -114,10 +117,10 @@ function Search(props) {
             </div>
             <div className="recipes-card">
                 <Grid>
-                    {searchedRecipes?.map(({ title, id, image }) => (
+                    {searchedRecipes?.map(({title, id, image}) => (
                         <Card key={id}>
-                            <Link to={`/recipe/${id}`}>
-                                <img src={image} alt={title} />
+                            <Link to={`/dish/${id}`}>
+                                <img src={image} alt={title}/>
                                 <h5>{title}</h5>
                             </Link>
                         </Card>
@@ -141,14 +144,16 @@ const Card = styled.div`
     width: min(320px, 100%);
     border-radius: 2rem;
   }
+
   a {
     text-decoration: none;
   }
+
   h5 {
     text-align: center;
     padding: 1rem;
     color: #ec875b;
-    
+
   }
 `;
 

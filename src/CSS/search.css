@@ -50,22 +50,26 @@ input[type='text'] {
 
 .form-check {
     background: white;
-    height: 230px;
-    margin: 35px 30px 50px 50px;
     box-sizing: border-box;
-    /* max-width: 90%; */
-    /* width: 1000px; */
+    min-height: 200px;
+    margin: 35px 30px 50px 50px;
     min-width: 50%;
     text-align: left;
     padding: 20px;
     border-radius: 10px;
 }
 
-.container-checkbox {
-    /*display: block;*/
+.form-check .check-list-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-check .check-list-item .container-checkbox {
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
     cursor: pointer;
     font-size: 1rem;
     -webkit-user-select: none;
@@ -73,6 +77,12 @@ input[type='text'] {
     -ms-user-select: none;
     user-select: none;
     width: 200px;
+}
+
+.form-check .check-list-item .check-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 /* Hide the browser's default checkbox */
@@ -87,7 +97,7 @@ input[type='text'] {
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
-    top: 0;
+    top: -5px;
     left: 0;
     height: 25px;
     width: 25px;

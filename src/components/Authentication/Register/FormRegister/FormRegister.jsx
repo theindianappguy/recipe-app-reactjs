@@ -1,6 +1,5 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
+import React, {useState} from "react";
+import {useForm} from "react-hook-form";
 import ErrorMessageAuth from "../../ErrorMessage/ErrorMessageAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,11 +20,11 @@ export default function FormRegister() {
     const [password, setPassword] = useState("");
     const handleClass = (name, baseClass = "form-control") => `${baseClass} ${errors[name] ? "is-invalid" : ""}`;
     const onSubmit = (data) => {
-        // console.log(data)
+        console.log(data)
         registerUser(data, dispatch, navigate);
     };
 
-    const [question, set_Question] = useState("");
+    const [qid, set_Question] = useState("");
     const [answer, setAnswer] = useState("");
 
     const mockup_questions = [{"id": 1, "content": "How many people are there in your family ?"},
@@ -114,11 +113,17 @@ export default function FormRegister() {
 
             <div className="mb-3">
                 <label>Private Q&A</label>
-                <select {...register("question")} className={handleClass("question")}>
-                <option value="" disabled selected hidden>Choose a question</option>
+                <select {...register("qid")}
+                        className={handleClass("qid")}
+                        value={qid}
+                        onChange={(e) => {
+                            set_Question(e.target.value)
+                        }}
+                >
+                <option value="" disabled defaultValue="" hidden>Choose a question</option>
                 {
-                    mockup_questions?.map(item => (
-                        <option value={item["id"]}>{item["content"]}</option>
+                    mockup_questions?.map((item, index) => (
+                        <option value={item["id"]} key={index}>{item["content"]}</option>
                     ))
                 }
                 </select>

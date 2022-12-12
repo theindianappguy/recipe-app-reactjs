@@ -3,6 +3,12 @@
     border-radius: 60px;
 }
 
+.profile .Toastify__toast-container.Toastify__toast-container--top-right {
+    top: -30px;
+    position: fixed;
+    right: -470px;
+}
+
 .profile::before {
     position: absolute;
     content: "";
@@ -10,6 +16,29 @@
     height: 23%;
     width: 100%;
     border-radius: 60px 60px 0 0;
+}
+
+.profile #icon-close-profile {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    color:white;
+    cursor: pointer;
+    transition: 0.5s all ease;
+    border-radius: 50%;
+}
+
+.profile #icon-close-profile:hover {
+    color:white;
+    background: #434241;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.profile #icon-close-profile:active {
+    color:white;
+    background: #bba58f;
+    border-radius: 50%;
 }
 
 .profile-content {
@@ -32,9 +61,31 @@
     border-radius: 50%;
 }
 
+.profile-content .image .icon-upload-image {
+    position: absolute;
+    top: 150px;
+    right: 150px;
+    background: rgb(152, 130, 130);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.profile-content .image .icon-upload-image:hover {
+    background: rgb(200, 171, 171);
+    color: rgb(80, 72, 72);
+}
+
+.profile-content .image .icon-upload-image:active {
+    background: rgb(187, 128, 128);
+    color: #fa986e;
+}
+
+
 .profile-content p {
     margin: 0;
 }
+
 
 .profile-content .image img {
     height: 100%;
@@ -52,6 +103,7 @@
     /* padding: 20px; */
     border: 1px solid #888;
     width: 80%;
+    height: 600px;
     border-radius: 60px;
     /* background: #fa986e; */
     /* Could be more or less, depending on screen size */
@@ -136,6 +188,13 @@ form.profile-content .name-profession {
     color: rgb(246, 248, 247);
 }
 
+.profile-content .content input[type = 'password']{
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.18);
+    outline: none;
+}
+
 .profile-content .content .details {
     text-align: left;
     width: 250px;
@@ -160,7 +219,12 @@ form.profile-content .name-profession {
     color: rgb(160, 155, 155);
 }
 
-.content .details span {
+.content .details p.err {
+    font-size: 12px;
+    color: red;
+}
+
+span {
     margin-top: 20px;
     font-size: 0.8em;
     font-weight: 500;
@@ -203,6 +267,14 @@ form.profile-content .name-profession {
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.18);
 }
 
+.birth_date input[type='date'] {
+    padding: 5px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.18);
+    width: 170px;
+    outline: none;
+}
+
 button.MuiButtonBase-root.MuiIconButton-root {
     margin-bottom: 20px;
     padding: 0;
@@ -224,3 +296,38 @@ button.MuiButtonBase-root.MuiIconButton-root {
 .birth_date .MuiInputBase-input {
     min-width: 160px;
 }
+
+span.update-password {
+    position: absolute;
+    display: inline-block;
+    height: fit-content;
+    left: 125px;
+    /* bottom: 30px; */
+    cursor: pointer;
+    border-top: 2px solid #81b3d2;
+    border-bottom: 2px solid #81b3d2;
+    margin: 0;
+    width: fit-content;
+}
+
+span:visited,span:hover{
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: 0.5s all ease;
+    color: #81b3d2;
+    cursor: pointer;
+}
+
+span.update-password:hover {
+    /* color: #fa986e; */
+    transition: 0.5s all ease;
+    color: #FA986E;
+}
+
+span.update-password:active {
+    color: #000000;
+    font-weight: 500;
+}
+
+
+

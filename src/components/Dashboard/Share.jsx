@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import '../../CSS/share.css';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AiFillWarning } from 'react-icons/ai'
 import { RiAddCircleFill } from 'react-icons/ri';
 import { MdDelete } from 'react-icons/md';
 import axios from 'axios';
-import { toast, Toaster } from 'react-hot-toast';
-// import { toast } from 'react-hot-toast';
+import { toast, ToastContainer } from 'react-toastify';
+import Select from 'react-select';
 
 function Share(props) {
 
@@ -39,8 +39,6 @@ function Share(props) {
         vote: vote,
         views: views
     }
-
-    console.log(recipe);
 
     const handleCreateRecipe = () => {
         const baseUrl = 'http://localhost:3000/recipe';
@@ -124,13 +122,19 @@ function Share(props) {
         setInputList(newInputList);
     }
 
+    const mockup_ingredents = [
+        {value: "1", label: "Rice"}, {value: "2", label: "Chicken"}, {value: "3", label: "Spice"},
+        {value: "4", label: "Orange"}, {value: "5", label: "Cucumber"}, {value: "6", label: "Leaf"},
+        {value: "7", label: "Juice"}, {value: "8", label: "Beef"}, {value: "9", label: "Wine"}
+    ]
+
     return (
 
         <>
             {
                 token ? <>
                     <form onSubmit={handleCreateRecipe} className='form-container-input'>
-                        <h2><span>Share</span> Your Recipes 🍔</h2>
+                        <h2>Share Your Recipes 🍔</h2>
                         <div className="share-container">
                             <div className="recipe-form-1">
                                 <div className="add-image">
@@ -190,19 +194,22 @@ function Share(props) {
                                         <p>Ingredient </p>
                                         {inputList.map((item, index) => (
                                             <div key={index} className="ingredient-add-item">
-                                                <div id='ingredient-add-item-name'>
+                                                <div className='ingredient-add-item-name'>
                                                     <label>Name:</label>
-                                                    <input type="text" placeholder=' ingredient...' />
+                                                    <Select
+                                                        options={mockup_ingredents}
+                                                        onChange={(e) => console.log(e)} // Handle here
+                                                    />
                                                 </div>
-                                                <div id='ingredient-add-item-amount'>
+                                                <div className='ingredient-add-item-amount'>
                                                     <label>Amount:</label>
                                                     <input type="number" />
                                                 </div>
-                                                <MdDelete className='delete-item-ingredient-add-item' onClick={() => deleteInput(index)} />
+                                                <MdDelete size={26} className='delete-item-ingredient-add-item' onClick={() => deleteInput(index)} />
                                             </div>
                                         ))}
                                         {/* <button type="button" onClick={addInput}> */}
-                                        <RiAddCircleFill className='btn-add-ingredient' onClick={addInput} />
+                                        <RiAddCircleFill size={26} className='btn-add-ingredient' onClick={addInput} />
                                         {/* </button> */}
                                     </div>
                                 </div>

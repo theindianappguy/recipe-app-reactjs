@@ -7,8 +7,17 @@ export class UpdateUserDto {
   email: string;
 
   @ApiProperty()
-  password: string;
+  username: string;
 
   @ApiProperty()
-  phoneNumber:number;
+  phone: string;
+
+  @ApiProperty()
+  birth_date: Date;
+
+  @ApiProperty()
+  avatar: string;
+
+  @ApiProperty()
+  gender: string;
 }

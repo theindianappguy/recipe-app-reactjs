@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DropDownNavbar from "../OtherComponent/IsLogined/DropDownNavbar";
 import { clearRedux } from "../../Redux/auth.slice";
 import Profile from '../Profile/Profile';
 import { GrClose } from 'react-icons/gr'
+import { getUser } from '../Api/user.api';
 
 function Navbar(props) {
     const dispatch = useDispatch();
     const userInfo = useSelector((state) => state.auth.login.currentUser)
-    console.log('Navbar user: ', userInfo);
     const [show, setShow] = useState(false);
     const [tablet, setTablet] = useState(false);
     const navigate = useNavigate();
 
+
     const closeNavbar = () => {
         setTablet(false);
     }
+
+    useEffect(()=>{
+        if (userInfo){
+            getUser(userInfo?.id, dispatch);
+        }
+    },[userInfo, dispatch]);
 
     return (
         <>
@@ -58,12 +65,12 @@ function Navbar(props) {
                         <Link onClick={() => dispatch(clearRedux())} to="register">
                             Register
                         </Link>
-                        <div className="bx bx-menu" id="menu-icon"></div>
+                        <div className="bx bx-menu" id="menu-icon" onClick={()=>setTablet(!tablet)}></div>
                     </div>
                 )}
             </div>
             <div className="App-content">
-                <Outlet />
+                <Outlet/>
                 <Profile show={show} setShow={setShow} />
             </div>
         </>

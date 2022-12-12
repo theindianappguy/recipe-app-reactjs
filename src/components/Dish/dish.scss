@@ -102,6 +102,15 @@
                 width: 100%;
             }
         }
-
+        &-row-3{
+            width: 100%;
+            &-voted{
+                width: 100%;
+                h2{
+                    width: 100%;
+                    color:rgb(95, 82, 42) ;
+                }
+            }
+        }
     }
 }

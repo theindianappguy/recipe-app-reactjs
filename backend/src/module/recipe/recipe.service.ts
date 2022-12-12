@@ -64,22 +64,27 @@ export class RecipeService {
       },
     });
   }
-async findOne(id: number) {
-    const recipe=await  this.recipeRepo.findOne({
+  async findOne(id: number) {
+    const recipe = await this.recipeRepo.findOne({
       where: {
         id: id,
       },
     });
-  const queryBuilder = this.recipeRawMaterialRepo.createQueryBuilder('recipe_raw_material');
-  queryBuilder.leftJoinAndSelect(`recipe_raw_material.rawmaterial`, `raw_material`);
-  queryBuilder.where(`recipe_raw_material.recipe_id = :id`, { id:recipe.id  });
-  const material=await queryBuilder.getRawMany();
-  console.log('a',queryBuilder.getQuery())
-  console.log('ahihi',material)
-  return [recipe,material];
+    const queryBuilder = this.recipeRawMaterialRepo.createQueryBuilder('recipe_raw_material');
+    queryBuilder.leftJoinAndSelect(`recipe_raw_material.rawmaterial`, `raw_material`);
+    queryBuilder.where(`recipe_raw_material.recipe_id = :id`, { id: recipe.id });
+    const material = await queryBuilder.getRawMany();
+    console.log('a', queryBuilder.getQuery())
+    console.log('ahihi', material)
+    return [recipe, material];
 
   }
-
+  findAll() {
+    return this.recipeRepo.find();
+  }
+  findAllRawMaterial() {
+    return this.rawMaterialRepo.find();
+  }
   update(id: number, updateRecipeDto: UpdateRecipeDto) {
     return `This action updates a #${id} recipe`;
   }

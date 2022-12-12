@@ -3,15 +3,24 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 export class User1661402437884 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
+      `CREATE TABLE IF NOT EXISTS  privatequestions (
+        id 			INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+       content VARCHAR(1000)
+    )`,
+    );
+    await queryRunner.query(
       `CREATE TABLE IF NOT EXISTS user (
         id 					INT 					NOT NULL 	PRIMARY KEY AUTO_INCREMENT, 
         email 			VARCHAR(50) 	NOT NULL 	UNIQUE,
         username 		VARCHAR(50) 	NOT NULL, 
         password	  VARCHAR(100) 	NOT NULL,
-        avatar			LONGBLOB 			NULL, 
+        avatar			LONGTEXT 			NULL, 
         phone 			VARCHAR(20) 	NULL, 
         birth_date 	DATE 					NULL, 
-        gender 			ENUM('MALE','FEMALE') NULL 
+        gender 			ENUM('MALE','FEMALE') NULL,
+        qid int NOT NULL,
+        answer varchar(100),
+        CONSTRAINT FK_user_questions FOREIGN KEY (qid) REFERENCES privatequestions(id)  ON UPDATE CASCADE ON DELETE CASCADE
            )`,
     );
     await queryRunner.query(
@@ -38,7 +47,7 @@ export class User1661402437884 implements MigrationInterface {
     );
     await queryRunner.query(
       `CREATE TABLE IF NOT EXISTS recipe_raw_material (
-        id                  INT UNIQUE AUTO_INCREMENT
+        id                  INT UNIQUE AUTO_INCREMENT,
         recipe_id 			INT NOT NULL,
         raw_material_id 	INT NOT NULL,
         amount 				    FLOAT NOT NULL,
