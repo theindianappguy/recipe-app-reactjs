@@ -1,0 +1,27 @@
+.profile-container{
+    background-color: bisque;
+    min-height: 80vh;
+    &-row-1{
+        &-title{
+            color: darkgrey;
+            font-size: 3em;
+            margin-left: 30px;
+            font-family: sans-serif;
+            letter-spacing: 0.1em;
+            transition: 0.3s;
+            text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+              1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
+              5px 13px 15px black;
+            &:hover{
+                transition: 0.3s;
+                text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
+                    1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
+                1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+            }
+        }
+
+    }
+    &-row-2{
+        margin-top: 30px;
+    }
+}
